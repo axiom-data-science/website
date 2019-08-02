@@ -5,11 +5,16 @@ backend:
 media_folder: static/assets
 public_folder: assets
 
+publish_mode: editorial_workflow
+site_url: https://axiom-website.netlify.com/
+
 collections:
   - name: blog
     label: Blog
     folder: content/blog
     create: true
+    slug: "{{ year }}-{{ month }}-{{ day }}-{{ slug }}"
+    preview_path: blog/{{ slug }}
     fields:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
