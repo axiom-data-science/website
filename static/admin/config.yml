@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: kwilcox/axiom-website
+  repo: axiom-data-science/website
 
 media_folder: static/assets
 public_folder: assets
