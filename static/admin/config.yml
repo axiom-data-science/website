@@ -16,7 +16,49 @@ collections:
     slug: "{{ year }}-{{ month }}-{{ day }}-{{ slug }}"
     preview_path: blog/{{ slug }}
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
+      - { name: date, label: Date, widget: date }
       - { name: body, label: Body, widget: markdown }
+      - label: "Featured Image"
+        name: "thumbnail"
+        widget: "image"
+        required: false
+        media_library:
+          config:
+            multiple: true
+
+  - name: portal_updates
+    label: Portal Updates
+    folder: content/updates/portal
+    create: true
+    slug: "{{ year }}-{{ month }}-{{ day }}-{{ slug }}"
+    preview_path: portal/updates/{{ slug }}
+    fields:
+      - { name: title, label: Title }
+      - { name: date, label: Date, widget: date }
+      - { name: body, label: Body, widget: markdown }
+      - label: "Featured Image"
+        name: "thumbnail"
+        widget: "image"
+        required: false
+        media_library:
+          config:
+            multiple: true
+
+  - name: atn_updates
+    label: ATN Updates
+    folder: content/updates/atn
+    create: true
+    slug: "{{ year }}-{{ month }}-{{ day }}-{{ slug }}"
+    preview_path: atn/updates/{{ slug }}
+    fields:
+      - { name: title, label: Title }
+      - { name: date, label: Date, widget: date }
+      - { name: body, label: Body, widget: markdown }
+      - label: "Featured Image"
+        name: "thumbnail"
+        widget: "image"
+        required: false
+        media_library:
+          config:
+            multiple: true
