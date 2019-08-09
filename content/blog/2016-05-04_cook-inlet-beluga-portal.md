@@ -1,5 +1,7 @@
 ---
-title: Axiom Partners with AOOS to Launch the Cook Inlet Beluga Whale Ecosystem Portal
+title: >-
+  Axiom Partners with AOOS to Launch the Cook Inlet Beluga Whale Ecosystem
+  Portal
 slug: cook-inlet-beluga-portal
 date: 2016-05-04T00:00:00.000Z
 featured:
@@ -27,5 +29,5 @@ This portal is intended to help with several planning efforts including:
 "The proposed ecosystem portal will include information not only about the sightings of beluga whales, but will integrate information about natural (e.g., environmental, predator, and prey data) and anthropogenic (e.g., current and proposed development projects) stressors." - Former NOAA Assistant Regional Administrator for Protected Resources, Jonathan M. Kurland
 
 Photos:
-https://drive.google.com/open?id=0Bw8AO00ezFjGWElzLU9mWW54NGc
-https://drive.google.com/open?id=0Bw8AO00ezFjGNDFQd3UyT0pqYUE
+*  https://drive.google.com/open?id=0Bw8AO00ezFjGWElzLU9mWW54NGc
+*  https://drive.google.com/open?id=0Bw8AO00ezFjGNDFQd3UyT0pqYUE
