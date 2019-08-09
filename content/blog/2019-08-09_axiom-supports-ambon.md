@@ -2,6 +2,7 @@
 title: >-
   From Microbes to Whales, Axiom Provides Data Support for the Arctic Marine
   Biodiversity Observing Network (AMBON)
+slug: axiom-supports-ambon
 date: 2016-01-21T15:46:54.836Z
 featured:
   image: /assets/ambon2015_groupphotocropped1-1024x452.jpg

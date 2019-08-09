@@ -17,11 +17,12 @@ collections:
     label: Blog
     folder: content/blog
     create: true
-    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}"
     preview_path: blog/{{slug}}
     identifier_field: title
     fields:
       - { name: "title", label: "Title", widget: "string" }
+      - { name: "slug", label: "URL Slug", widget: "string" }
       - { name: "date",  label: "Date",  widget: "date" }
       - { name: "body",  label: "Body",  widget: "markdown" }
       - { name: "featured", label: "Featured", widget: "object", required: false, fields: [
@@ -49,12 +50,13 @@ collections:
     label: Portal Updates
     folder: content/updates/portal
     create: true
-    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}"
     preview_path: portal/{{slug}}
     identifier_field: title
     fields:
       - { name: "title", label: "Title", widget: "string" }
-      - { name: "version", label: "Version", widget: "string" }
+      - { name: "slug", label: "URL Slug", widget: "string" }
+      - { name: "version", label: "Version", widget: "string", required: false }
       - { name: "date", label: "Date", widget: "date" }
       - { name: "body", label: "Body", widget: "markdown" }
       - { name: "featured", label: "Featured", widget: "object", required: false, fields: [
@@ -82,12 +84,13 @@ collections:
     label: ATN Updates
     folder: content/updates/atn
     create: true
-    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}"
     preview_path: atn/{{slug}}
     identifier_field: title
     fields:
       - { name: "title", label: "Title", widget: "string" }
-      - { name: "version", label: "Version", widget: "string" }
+      - { name: "slug", label: "URL Slug", widget: "string" }
+      - { name: "version", label: "Version", widget: "string", required: false }
       - { name: "date", label: "Date", widget: "date" }
       - { name: "body", label: "Body", widget: "markdown" }
       - { name: "featured", label: "Featured", widget: "object", required: false, fields: [
