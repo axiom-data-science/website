@@ -14,7 +14,6 @@ imageA:
     change the default time period view under map Settings. Or, by toggling between
     real-time and historical conditions within the chart view.
 ---
-
 #### Release Summary
 
 The 2.7 version replaces the beta 2.6 version with an operational version of the new portal. Enhancements were made to partition real-time from historical data feeds to quicken load speeds. Additionally, real-time conditions are available on a mouse hoiver and persist to selected data views.

@@ -21,7 +21,6 @@ imageC:
   caption: >-
     Interactive Help
 ---
-
 #### Release Summary
 
 The 2.9 version replaces the beta 2.8 version (never released) with improvements to the existing search functionality and introduction of a new method for accessing help docs.

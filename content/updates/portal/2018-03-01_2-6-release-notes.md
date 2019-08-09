@@ -15,7 +15,6 @@ imageA:
     Users can quickly downloaded data using interoperability from with the Catalog and data
     layer views.
 ---
-
 #### Release Summary
 
 The opt-in 2.6 beta version optimizes the portal search engine and reworks the catalog and metadata views. The catalog now includes icon for quick, visual identification of data types (e.g. layers, sensors, and mobile platforms). Enhancements were made to more easily manage layers and download or add interactive data to a map.  

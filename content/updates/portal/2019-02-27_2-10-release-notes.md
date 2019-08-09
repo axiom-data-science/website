@@ -12,7 +12,6 @@ imageA:
   caption: >-
     Data quality test display for flagged sensor data streams.
 ---
-
 #### Release Summary
 
 This 2.10 version introduces portal display of existing data quality flags from sources, layer opacity controls, and updates to the visualization and data handling for moving platforms. 
