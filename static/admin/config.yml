@@ -57,6 +57,26 @@ collections:
       - { name: "version", label: "Version", widget: "string" }
       - { name: "date", label: "Date", widget: "date" }
       - { name: "body", label: "Body", widget: "markdown" }
+      - { name: "featured", label: "Featured", widget: "object", required: false, fields: [
+          { name: "featured_image", label: "Featured Image", widget: "image", required: false },
+          { name: "featured_caption", label: "Featured Caption", widget: "text", required: false }
+        ]}
+      - { name: "imageA", label: "Image A", widget: "object", required: false, fields: [
+          { name: "imageA_image", label: "Image A Image", widget: "image", required: false },
+          { name: "imageA_caption", label: "Image A Caption", widget: "text", required: false }
+        ]}
+      - { name: "imageB", label: "Image B", widget: "object", required: false, fields: [
+          { name: "imageB_image", label: "Image B Image", widget: "image", required: false },
+          { name: "imageB_caption", label: "Image B Caption", widget: "text", required: false }
+        ]}
+      - { name: "imageC", label: "Image C", widget: "object", required: false, fields: [
+          { name: "imageC_image", label: "Image C Image", widget: "image", required: false },
+          { name: "imageC_caption", label: "Image C Caption", widget: "text", required: false }
+        ]}
+      - { name: "imageD", label: "Image D", widget: "object", required: false, fields: [
+          { name: "imageD_image", label: "Image D Image", widget: "image", required: false },
+          { name: "imageD_caption", label: "Image D Caption", widget: "text", required: false }
+        ]}
 
   - name: atn_updates
     label: ATN Updates
@@ -70,3 +90,23 @@ collections:
       - { name: "version", label: "Version", widget: "string" }
       - { name: "date", label: "Date", widget: "date" }
       - { name: "body", label: "Body", widget: "markdown" }
+      - { name: "featured", label: "Featured", widget: "object", required: false, fields: [
+          { name: "featured_image", label: "Featured Image", widget: "image", required: false },
+          { name: "featured_caption", label: "Featured Caption", widget: "text", required: false }
+        ]}
+      - { name: "imageA", label: "Image A", widget: "object", required: false, fields: [
+          { name: "imageA_image", label: "Image A Image", widget: "image", required: false },
+          { name: "imageA_caption", label: "Image A Caption", widget: "text", required: false }
+        ]}
+      - { name: "imageB", label: "Image B", widget: "object", required: false, fields: [
+          { name: "imageB_image", label: "Image B Image", widget: "image", required: false },
+          { name: "imageB_caption", label: "Image B Caption", widget: "text", required: false }
+        ]}
+      - { name: "imageC", label: "Image C", widget: "object", required: false, fields: [
+          { name: "imageC_image", label: "Image C Image", widget: "image", required: false },
+          { name: "imageC_caption", label: "Image C Caption", widget: "text", required: false }
+        ]}
+      - { name: "imageD", label: "Image D", widget: "object", required: false, fields: [
+          { name: "imageD_image", label: "Image D Image", widget: "image", required: false },
+          { name: "imageD_caption", label: "Image D Caption", widget: "text", required: false }
+        ]}
