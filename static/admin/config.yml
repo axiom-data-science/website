@@ -113,3 +113,20 @@ collections:
           { name: "image", label: "Image D Image", widget: "image", required: false },
           { name: "caption", label: "Image D Caption", widget: "text", required: false }
         ]}
+
+  - name: staff
+    label: Staff
+    folder: content/staff
+    create: true
+    slug: "{{name}}"
+    preview_path: staff/{{slug}}
+    identifier_field: name
+    fields:
+      - { name: "name", label: "Name", widget: "string" }
+      - { name: "position", label: "Position", widget: "string" }
+      - { name: "headshot", label: "Headshot", widget: "image" }
+      - { name: "body", label: "Bio", widget: "markdown" }
+      - { name: "funny", label: "Funny", widget: "object", required: false, fields: [
+          { name: "headshot", label: "Funny Headshot", widget: "image", required: false },
+          { name: "bio", label: "Funny Bio", widget: "markdown", required: false }
+        ]}
