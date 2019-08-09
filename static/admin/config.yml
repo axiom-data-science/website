@@ -131,3 +131,20 @@ collections:
           { name: "headshot", label: "Funny Headshot", widget: "image", required: false },
           { name: "bio", label: "Funny Bio", widget: "markdown", required: false }
         ]}
+
+  - name: clients
+    label: Clients
+    folder: content/clients
+    create: true
+    slug: "{{fields.slug}}"
+    preview_path: clients/{{slug}}
+    identifier_field: slug
+    fields:
+      - { name: "name", label: "Name", widget: "string" }
+      - { name: "slug", label: "Slug", widget: "string" }
+      - { name: "url",  label: "URL",  widget: "string" }
+      - { name: "logo", label: "Logo", widget: "image" }
+      - { name: "body", label: "Description", widget: "markdown" }
+      - { name: "display", label: "Display Where?", widget: "select", multiple: true, default: [ "Clients" ],
+          options: [ "Clients", "Featured" ]
+        }
