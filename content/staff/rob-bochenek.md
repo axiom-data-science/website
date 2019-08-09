@@ -1,5 +1,6 @@
 ---
 name: Rob Bochenek
+email: rob@axds.co
 position: Information Architect
 headshot: /assets/r-bochenek.jpg
 ---
