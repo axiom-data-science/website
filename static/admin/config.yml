@@ -144,7 +144,7 @@ collections:
       - { name: "slug", label: "Slug", widget: "string" }
       - { name: "url",  label: "URL",  widget: "string" }
       - { name: "logo", label: "Logo", widget: "image" }
-      - { name: "body", label: "Description", widget: "markdown" }
+      - { name: "body", label: "Description", widget: "markdown", required: false }
       - { name: "display", label: "Display Where?", widget: "select", multiple: true, default: [ "Clients" ],
           options: [ "Clients", "Featured" ]
         }
