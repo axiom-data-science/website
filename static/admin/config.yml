@@ -123,8 +123,9 @@ collections:
     editor:
       preview: true
     folder: content/posts
-    slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}"
+    slug: "{{ year }}-{{ month }}-{{ day }}_{{ fields.slug }}"
     create: true
+    identifier_field: title
     fields:
       - { label: Template, name: template, widget: hidden, default: SinglePost }
       - { label: Title, name: title, widget: string }
@@ -161,6 +162,7 @@ collections:
     folder: content/postCategories
     slug: "{{ slug }}"
     create: true
+    identifier_field: title
     fields:
       - { label: Template, name: template, widget: hidden, default: BlogIndex }
       - { label: Title, name: title, widget: string }
@@ -177,6 +179,7 @@ collections:
     folder: content/solutions
     slug: "{{ fields.slug }}"
     create: true
+    identifier_field: title
     fields:
       - { label: Template, name: template, widget: hidden, default: SingleSolution }
       - { label: Title, name: title, widget: string }
@@ -212,6 +215,7 @@ collections:
     folder: content/solutionCategories
     slug: "{{ fields.slug }}"
     create: true
+    identifier_field: title
     fields:
       - { label: Template, name: template, widget: hidden, default: SolutionIndex }
       - { label: Title, name: title, widget: string }
@@ -266,6 +270,7 @@ collections:
     create: true
     slug: "{{ fields.slug }}"
     folder: content/locations
+    identifier_field: title
     fields:
       - { label: Title,     name: title,     widget: string }
       - { label: Intro,     name: intro,     widget: markdown }
