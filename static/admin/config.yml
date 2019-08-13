@@ -270,17 +270,18 @@ collections:
     editor:
       preview: false
     create: true
-    slug: "{{fields.slug}}"
+    slug: "{{title}}"
     folder: content/locations
     identifier_field: title
     fields:
       - { label: Title,     name: title,     widget: string }
-      - { label: Intro,     name: intro,     widget: markdown }
-      - { label: Name,      name: name,      widget: string }
-      - { label: Address,   name: address,   widget: string }
+      - { label: Address1 , name: address1,  widget: string }
+      - { label: Address2,  name: address2,  widget: string }
       - { label: Photo,     name: photo,     widget: image }
       - { label: Longitude, name: longitude, widget: number,    valueType: float }
       - { label: Latitude,  name: latitude,  widget: number,    valueType: float }
+      - { label: MapsLink,  name: mapslink,  widget: string }
+      - { label: Body,      name: body,      widget: markdown,  required: false }
 
   - name: pages
     label: Page
