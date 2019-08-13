@@ -1,21 +1,18 @@
 ---
+template: SinglePost
 title: "2.4 Release Notes"
 slug: "2-4-release-notes"
-version: "2.4"
 date: 2017-12-20T00:00:00.000Z
 featured:
   image: /assets/v2.4image_1.png
   caption: >-
-    Real-time sensor data can be explored in the Data Catalog and added to the
-    Portal Map for visualization (left). Real-time and virtual sensors for model
-    layers can be added from the Portal Map to the Data Views for data comparison
-    (right).
-imageA:
-  image: /assets/v2.4image_2.png
-  caption: >-
-    Individual pages for glider deployments, including 3D data charting and 
-    trajecotry parsing (left). Depth filtering of profiling sensor available
-    with user-selected methods of interpolation (right).
+    Real-time sensor data can be explored in the Data Catalog and added to the Portal Map for visualization (left). Real-time and virtual sensors for model layers can be added from the Portal Map to the Data Views for data comparison (right).
+images:
+  - image: /assets/v2.4image_2.png
+    caption: >-
+      Individual pages for glider deployments, including 3D data charting and trajecotry parsing (left). Depth filtering of profiling sensor available with user-selected methods of interpolation (right).
+categories:
+  - category: Portal Updates
 ---
 #### Release Summary
 
@@ -25,7 +22,7 @@ The opt-in 2.4 beta version includes 4D explorer and raster enhancements for gli
 #### New Features
 
 *  Explore glider, cruise, and model data layers through the data catalog
-*  Virtual sensors to calculate an estimate of the quantity of interest for model data 
+*  Virtual sensors to calculate an estimate of the quantity of interest for model data
 *  Customizable data comparison charts for real-time sensor and model data
 *  Interactive, 3D visualizations of glider data with temporal and spatial parsing for glider trajectories
 *  Curtain plots for depth profiling sensors (including gliders) with user-selected options for data interpolation

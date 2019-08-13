@@ -1,25 +1,24 @@
 ---
+template: SinglePost
 title: "2.9 Release Notes"
 slug: "2-9-release-notes"
-version: "2.9"
 date: 2018-12-05T00:00:00.000Z
 featured:
   image: /assets/v2.9.1.png
   caption: >-
     Improved catalog search with active filters for quick removal.
-imageA:
-  image: /assets/v2.9.2.png
-  caption: >-
-    Variable type result page with links to station and source pages for closer data
-    investigation and access.
-imageB:
-  image: /assets/v2.9.3.png
-  caption: >-
-    In-map access to search to add layers directly from the map.
-imageC:
-  image: /assets/v2.9.4.png
-  caption: >-
-    Interactive Help
+images:
+  - image: /assets/v2.9.2.png
+    caption: >-
+      Variable type result page with links to station and source pages for closer data investigation and access.
+  - image: /assets/v2.9.3.png
+    caption: >-
+      In-map access to search to add layers directly from the map.
+  - image: /assets/v2.9.4.png
+    caption: >-
+      Interactive Help
+categories:
+  - category: Portal Updates
 ---
 #### Release Summary
 

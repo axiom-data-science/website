@@ -1,19 +1,18 @@
 ---
+template: SinglePost
 title: "2.6 Release Notes"
 slug: "2-6-release-notes"
-version: "2.6"
 date: 2018-03-01T00:00:00.000Z
 featured:
   image: /assets/v2.6image1.png
   caption: >-
-    Icons were added to layers in the Data Catalog for easy identification among data types.
-    The catalog views were reworked to ease the readability of data layers.
-imageA:
-  image: /assets/v2.6image2.png
-  caption: >-
-    The number of layers within a Data Catalog module were summarized for quick reference.
-    Users can quickly downloaded data using interoperability from with the Catalog and data
-    layer views.
+    Icons were added to layers in the Data Catalog for easy identification among data types. The catalog views were reworked to ease the readability of data layers.
+images:
+  - image: /assets/v2.6image2.png
+    caption: >-
+      The number of layers within a Data Catalog module were summarized for quick reference.  Users can quickly downloaded data using interoperability from with the Catalog and data layer views.
+categories:
+  - category: Portal Updates        
 ---
 #### Release Summary
 

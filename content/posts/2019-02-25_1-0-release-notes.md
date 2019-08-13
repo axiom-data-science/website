@@ -1,10 +1,13 @@
 ---
+template: SinglePost
 title: 1.0 Release Notes
 slug: 1-0-release-notes
 version: '1.0'
 date: 2019-02-25T00:00:00.000Z
 featured:
   image: /assets/atn.v.1.0.1.png
+categories:
+  - category: ATN Updates
 ---
 #### Release Summary
 

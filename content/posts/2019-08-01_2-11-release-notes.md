@@ -1,16 +1,18 @@
 ---
+template: SinglePost
 title: "2.11 Release Notes"
 slug: "2-11-release-notes"
-version: "2.11"
 date: 2019-08-01T00:00:00.000Z
 featured:
   image: /assets/v2.11.1.png
-imageA:
-  image: /assets/v2.11.2.png
+images:
+  - image: /assets/v2.11.2.png
+categories:
+  - category: Portal Updates
 ---
 #### Release Summary
 
-This release realizes full integration and enhancements of the v2 sensor system together with the calculation and display of QARTOD tests for observation data within the portal. 
+This release realizes full integration and enhancements of the v2 sensor system together with the calculation and display of QARTOD tests for observation data within the portal.
 
 
 #### New Features

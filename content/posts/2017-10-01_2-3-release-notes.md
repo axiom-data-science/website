@@ -1,19 +1,18 @@
 ---
+template: SinglePost
 title: "2.3 Release Notes"
 slug: "2-3-release-notes"
-version: "2.3"
 date: 2017-10-01T00:00:00.000Z
 featured:
   image: /assets/v2_3_1.png
   caption: >-
-    New map interface with palette control (left), and comparison charts between different
-    sensors and parameters (right). Data charts offer user selection of climatology or anomaly
-    views for longer timeseries (>3 years).
-imageA:
-  image: /assets/v2.3_image2.png
-  caption: >-
-    Station level pages both station data alongside metadata and source information (left). 
-    Data sources are discoverable with links to individual stations (right).
+    New map interface with palette control (left), and comparison charts between different sensors and parameters (right). Data charts offer user selection of climatology or anomaly views for longer timeseries (>3 years).
+images:
+  - image: /assets/v2.3_image2.png
+    caption: >-
+      Station level pages both station data alongside metadata and source information (left). Data sources are discoverable with links to individual stations (right).
+categories:
+  - category: Portal Updates
 ---
 #### Release Summary
 

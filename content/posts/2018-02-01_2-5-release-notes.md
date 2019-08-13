@@ -1,19 +1,18 @@
 ---
+template: SinglePost
 title: "2.5 Release Notes"
 slug: "2-5-release-notes"
-version: "2.5"
 date: 2018-02-01T00:00:00.000Z
 featured:
   image: /assets/v2.5image1.png
   caption: >-
-    Vector data can be added to the Portal Map using hex bin heat mapping, and quiered spatially
-    to visualized and download timeseries data summaries.
-imageA:
-  image: /assets/v2.5image2.png
-  caption: >-
-    Biological data can be added to custom Data Views and compared with physical, environmental,
-    or spatially-quiered model data (e.g. virtual sensor) for data comparison (right).
-
+    Vector data can be added to the Portal Map using hex bin heat mapping, and quiered spatially to visualized and download timeseries data summaries.
+images:
+  - image: /assets/v2.5image2.png
+    caption: >-
+      Biological data can be added to custom Data Views and compared with physical, environmental, or spatially-quiered model data (e.g. virtual sensor) for data comparison (right).
+categories:
+  - category: Portal Updates
 ---
 #### Release Summary
 

@@ -1,18 +1,18 @@
 ---
+template: SinglePost
 title: "2.7 Release Notes"
 slug: "2-7-release-notes"
-version: "2.7"
 date: 2018-04-02T00:00:00.000Z
 featured:
   image: /assets/2.7_1.png
   caption: >-
     Real-time conditions and trend lines are available on feature hover.
-imageA:
-  image: /assets/2.7_2.png
-  caption: >-
-    Sensor data are partitioned into real-time and historical time periods. Users can
-    change the default time period view under map Settings. Or, by toggling between
-    real-time and historical conditions within the chart view.
+images:
+  - image: /assets/2.7_2.png
+    caption: >- 
+      Sensor data are partitioned into real-time and historical time periods. Users can change the default time period view under map Settings. Or, by toggling between real-time and historical conditions within the chart view.
+categories:
+  - category: Portal Updates        
 ---
 #### Release Summary
 
