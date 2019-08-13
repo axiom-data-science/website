@@ -12,7 +12,7 @@ backend:
 media_folder: static/assets
 public_folder: assets
 
-publish_mode: editorial_workflow
+#publish_mode: editorial_workflow
 site_url: https://axiom-website.netlify.com/
 
 slug:
@@ -206,7 +206,7 @@ collections:
             valueField: 'title'
 
   - name: solutionCategories
-    label: Solution Category
+    label: Solution Categories
     editor:
       preview: false
     folder: content/solutionCategories
@@ -308,9 +308,9 @@ collections:
           - { label: Featured Image, name: featuredImage, widget: image }
           - { label: Subtitle, name: subtitle, widget: markdown }
 
-      # Solutions page
+      # Solutions page, listing all of the Solutions Categories
       - file: content/pages/solutions.md
-        label: Solution Category
+        label: Solution Categories
         name: solutions-page
         fields:
           - { label: Template, name: template, widget: hidden, default: SolutionsPage }
