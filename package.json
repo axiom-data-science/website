@@ -1,12 +1,12 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
-  "version": "0.1.0",
+  "name": "axiom-website",
+  "description": "The website for Axiom Data Science",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "clean": "rm -rf .cache public",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -17,7 +17,8 @@
     "gatsby-plugin-netlify-cms": "^4.1.6",
     "netlify-cms-app": "^2.9.7",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "yarn": "^1.17.3"
   },
   "devDependencies": {
     "prettier": "^1.18.2"

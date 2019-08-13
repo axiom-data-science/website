@@ -5,5 +5,12 @@
  */
 
 module.exports = {
+
+  siteMetadata: {
+    title: 'Axiom Data Science',
+    siteUrl: 'https://axiomdatascience.com'
+  },
+
   plugins: [`gatsby-plugin-netlify-cms`]
+
 }

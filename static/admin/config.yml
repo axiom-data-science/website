@@ -1,6 +1,13 @@
 backend:
   name: github
   repo: axiom-data-science/website
+  squash_merges: true
+  # commit_messages:
+  #   create: Create {{collection}} “{{slug}}”
+  #   update: Update {{collection}} “{{slug}}”
+  #   delete: Delete {{collection}} “{{slug}}”
+  #   uploadMedia: Upload “{{path}}”
+  #   deleteMedia: Delete “{{path}}”
 
 media_folder: static/assets
 public_folder: assets
@@ -13,113 +20,215 @@ slug:
   clean_accents: true
 
 collections:
-  - name: blog
-    label: Blog
-    folder: content/blog
-    create: true
+  # - name: blog
+  #   label: Blog
+  #   folder: content/blog
+  #   create: true
+  #   slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}"
+  #   identifier_field: title
+  #   fields:
+  #     - { name: "title", label: "Title", widget: "string" }
+  #     - { name: "slug", label: "URL Slug", widget: "string" }
+  #     - { name: "date",  label: "Date",  widget: "date" }
+  #     - { name: "body",  label: "Body",  widget: "markdown" }
+  #     - { name: "featured", label: "Featured", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Featured Image", widget: "image", required: false },
+  #         { name: "caption", label: "Featured Caption", widget: "text", required: false }
+  #       ]}
+  #     - { name: "imageA", label: "Image A", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Image A Image", widget: "image", required: false },
+  #         { name: "caption", label: "Image A Caption", widget: "text", required: false }
+  #       ]}
+  #     - { name: "imageB", label: "Image B", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Image B Image", widget: "image", required: false },
+  #         { name: "caption", label: "Image B Caption", widget: "text", required: false }
+  #       ]}
+  #     - { name: "imageC", label: "Image C", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Image C Image", widget: "image", required: false },
+  #         { name: "caption", label: "Image C Caption", widget: "text", required: false }
+  #       ]}
+  #     - { name: "imageD", label: "Image D", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Image D Image", widget: "image", required: false },
+  #         { name: "caption", label: "Image D Caption", widget: "text", required: false }
+  #       ]}
+
+  # - name: portal_updates
+  #   label: Portal Updates
+  #   folder: content/updates/portal
+  #   create: true
+  #   slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}"
+  #   identifier_field: title
+  #   fields:
+  #     - { name: "title", label: "Title", widget: "string" }
+  #     - { name: "slug", label: "URL Slug", widget: "string" }
+  #     - { name: "version", label: "Version", widget: "string", required: false }
+  #     - { name: "date", label: "Date", widget: "date" }
+  #     - { name: "body", label: "Body", widget: "markdown" }
+  #     - { name: "featured", label: "Featured", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Featured Image", widget: "image", required: false },
+  #         { name: "caption", label: "Featured Caption", widget: "text", required: false }
+  #       ]}
+  #     - { name: "imageA", label: "Image A", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Image A Image", widget: "image", required: false },
+  #         { name: "caption", label: "Image A Caption", widget: "text", required: false }
+  #       ]}
+  #     - { name: "imageB", label: "Image B", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Image B Image", widget: "image", required: false },
+  #         { name: "caption", label: "Image B Caption", widget: "text", required: false }
+  #       ]}
+  #     - { name: "imageC", label: "Image C", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Image C Image", widget: "image", required: false },
+  #         { name: "caption", label: "Image C Caption", widget: "text", required: false }
+  #       ]}
+  #     - { name: "imageD", label: "Image D", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Image D Image", widget: "image", required: false },
+  #         { name: "caption", label: "Image D Caption", widget: "text", required: false }
+  #       ]}
+
+  # - name: atn_updates
+  #   label: ATN Updates
+  #   folder: content/updates/atn
+  #   create: true
+  #   slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}"
+  #   identifier_field: title
+  #   fields:
+  #     - { name: "title", label: "Title", widget: "string" }
+  #     - { name: "slug", label: "URL Slug", widget: "string" }
+  #     - { name: "version", label: "Version", widget: "string", required: false }
+  #     - { name: "date", label: "Date", widget: "date" }
+  #     - { name: "body", label: "Body", widget: "markdown" }
+  #     - { name: "featured", label: "Featured", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Featured Image", widget: "image", required: false },
+  #         { name: "caption", label: "Featured Caption", widget: "text", required: false }
+  #       ]}
+  #     - { name: "imageA", label: "Image A", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Image A Image", widget: "image", required: false },
+  #         { name: "caption", label: "Image A Caption", widget: "text", required: false }
+  #       ]}
+  #     - { name: "imageB", label: "Image B", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Image B Image", widget: "image", required: false },
+  #         { name: "caption", label: "Image B Caption", widget: "text", required: false }
+  #       ]}
+  #     - { name: "imageC", label: "Image C", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Image C Image", widget: "image", required: false },
+  #         { name: "caption", label: "Image C Caption", widget: "text", required: false }
+  #       ]}
+  #     - { name: "imageD", label: "Image D", widget: "object", required: false, fields: [
+  #         { name: "image", label: "Image D Image", widget: "image", required: false },
+  #         { name: "caption", label: "Image D Caption", widget: "text", required: false }
+  #       ]}
+
+  - name: posts
+    label: Post
+    editor:
+      preview: true
+    folder: content/posts
     slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}"
-    preview_path: blog/{{slug}}
-    identifier_field: title
+    create: true
     fields:
-      - { name: "title", label: "Title", widget: "string" }
-      - { name: "slug", label: "URL Slug", widget: "string" }
-      - { name: "date",  label: "Date",  widget: "date" }
-      - { name: "body",  label: "Body",  widget: "markdown" }
-      - { name: "featured", label: "Featured", widget: "object", required: false, fields: [
-          { name: "image", label: "Featured Image", widget: "image", required: false },
-          { name: "caption", label: "Featured Caption", widget: "text", required: false }
+      - { label: Template, name: template, widget: hidden, default: SinglePost }
+      - { label: Title, name: title, widget: string }
+      - { label: URL Slug, name: slug, widget: string }
+      - { label: Date / Order, name: date, widget: date }
+      - { label: Body, name: body, widget: markdown }
+      - { name: featured, label: Featured, widget: object, required: false, fields: [
+          { name: image, label: Featured Image, widget: image, required: false },
+          { name: caption, label: Featured Caption, widget: text, required: false }
         ]}
-      - { name: "imageA", label: "Image A", widget: "object", required: false, fields: [
-          { name: "image", label: "Image A Image", widget: "image", required: false },
-          { name: "caption", label: "Image A Caption", widget: "text", required: false }
-        ]}
-      - { name: "imageB", label: "Image B", widget: "object", required: false, fields: [
-          { name: "image", label: "Image B Image", widget: "image", required: false },
-          { name: "caption", label: "Image B Caption", widget: "text", required: false }
-        ]}
-      - { name: "imageC", label: "Image C", widget: "object", required: false, fields: [
-          { name: "image", label: "Image C Image", widget: "image", required: false },
-          { name: "caption", label: "Image C Caption", widget: "text", required: false }
-        ]}
-      - { name: "imageD", label: "Image D", widget: "object", required: false, fields: [
-          { name: "image", label: "Image D Image", widget: "image", required: false },
-          { name: "caption", label: "Image D Caption", widget: "text", required: false }
+      - label: 'Images'
+        name: 'images'
+        widget: 'list'
+        required: false
+        fields:
+          - { name: image, label: Image, widget: image, required: true }
+          - { name: caption, label: Caption, widget: text, required: false }
+      - label: 'Categories'
+        name: 'categories'
+        widget: 'list'
+        required: false
+        fields:
+          - label: 'Category'
+            name: 'category'
+            widget: 'relation'
+            collection: 'postCategories'
+            searchFields: ['title']
+            valueField: 'title'
+
+  - name: postCategories
+    label: Post Category
+    editor:
+      preview: false
+    folder: content/postCategories
+    slug: "{{ slug }}"
+    create: true
+    fields:
+      - { label: Template, name: template, widget: hidden, default: BlogIndex }
+      - { label: Title, name: title, widget: string }
+      - { label: Subtitle, name: subtitle, widget: string, required: false }
+      - { name: featured, label: Featured, widget: object, required: false, fields: [
+          { name: image, label: Featured Image, widget: image, required: false },
+          { name: caption, label: Featured Caption, widget: text, required: false }
         ]}
 
-  - name: portal_updates
-    label: Portal Updates
-    folder: content/updates/portal
+  - name: solution
+    label: Solution
+    editor:
+      preview: true
+    folder: content/solutions
+    slug: "{{ fields.slug }}"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}"
-    preview_path: portal/{{slug}}
-    identifier_field: title
     fields:
-      - { name: "title", label: "Title", widget: "string" }
-      - { name: "slug", label: "URL Slug", widget: "string" }
-      - { name: "version", label: "Version", widget: "string", required: false }
-      - { name: "date", label: "Date", widget: "date" }
-      - { name: "body", label: "Body", widget: "markdown" }
-      - { name: "featured", label: "Featured", widget: "object", required: false, fields: [
-          { name: "image", label: "Featured Image", widget: "image", required: false },
-          { name: "caption", label: "Featured Caption", widget: "text", required: false }
+      - { label: Template, name: template, widget: hidden, default: SingleSolution }
+      - { label: Title, name: title, widget: string }
+      - { label: URL Slug, name: slug, widget: string }
+      - { label: Body, name: body, widget: markdown }
+      - { name: featured, label: Featured, widget: object, required: false, fields: [
+          { name: image, label: Featured Image, widget: image, required: false },
+          { name: caption, label: Featured Caption, widget: text, required: false }
         ]}
-      - { name: "imageA", label: "Image A", widget: "object", required: false, fields: [
-          { name: "image", label: "Image A Image", widget: "image", required: false },
-          { name: "caption", label: "Image A Caption", widget: "text", required: false }
-        ]}
-      - { name: "imageB", label: "Image B", widget: "object", required: false, fields: [
-          { name: "image", label: "Image B Image", widget: "image", required: false },
-          { name: "caption", label: "Image B Caption", widget: "text", required: false }
-        ]}
-      - { name: "imageC", label: "Image C", widget: "object", required: false, fields: [
-          { name: "image", label: "Image C Image", widget: "image", required: false },
-          { name: "caption", label: "Image C Caption", widget: "text", required: false }
-        ]}
-      - { name: "imageD", label: "Image D", widget: "object", required: false, fields: [
-          { name: "image", label: "Image D Image", widget: "image", required: false },
-          { name: "caption", label: "Image D Caption", widget: "text", required: false }
-        ]}
+      - label: 'Images'
+        name: 'images'
+        widget: 'list'
+        required: false
+        fields:
+          - { name: image, label: Image, widget: image, required: true }
+          - { name: caption, label: Caption, widget: text, required: false }
+      - label: 'Categories'
+        name: 'categories'
+        widget: 'list'
+        required: false
+        fields:
+          - label: 'Category'
+            name: 'category'
+            widget: 'relation'
+            collection: 'solutionCategories'
+            searchFields: ['title']
+            valueField: 'title'
 
-  - name: atn_updates
-    label: ATN Updates
-    folder: content/updates/atn
+  - name: solutionCategories
+    label: Solution Category
+    editor:
+      preview: false
+    folder: content/solutionCategories
+    slug: "{{ fields.slug }}"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}"
-    preview_path: atn/{{slug}}
-    identifier_field: title
     fields:
-      - { name: "title", label: "Title", widget: "string" }
-      - { name: "slug", label: "URL Slug", widget: "string" }
-      - { name: "version", label: "Version", widget: "string", required: false }
-      - { name: "date", label: "Date", widget: "date" }
-      - { name: "body", label: "Body", widget: "markdown" }
-      - { name: "featured", label: "Featured", widget: "object", required: false, fields: [
-          { name: "image", label: "Featured Image", widget: "image", required: false },
-          { name: "caption", label: "Featured Caption", widget: "text", required: false }
-        ]}
-      - { name: "imageA", label: "Image A", widget: "object", required: false, fields: [
-          { name: "image", label: "Image A Image", widget: "image", required: false },
-          { name: "caption", label: "Image A Caption", widget: "text", required: false }
-        ]}
-      - { name: "imageB", label: "Image B", widget: "object", required: false, fields: [
-          { name: "image", label: "Image B Image", widget: "image", required: false },
-          { name: "caption", label: "Image B Caption", widget: "text", required: false }
-        ]}
-      - { name: "imageC", label: "Image C", widget: "object", required: false, fields: [
-          { name: "image", label: "Image C Image", widget: "image", required: false },
-          { name: "caption", label: "Image C Caption", widget: "text", required: false }
-        ]}
-      - { name: "imageD", label: "Image D", widget: "object", required: false, fields: [
-          { name: "image", label: "Image D Image", widget: "image", required: false },
-          { name: "caption", label: "Image D Caption", widget: "text", required: false }
+      - { label: Template, name: template, widget: hidden, default: SolutionIndex }
+      - { label: Title, name: title, widget: string }
+      - { label: URL Slug, name: slug, widget: string }
+      - { label: Subtitle, name: subtitle, widget: string, required: false }
+      - { name: featured, label: Featured, widget: object, required: false, fields: [
+          { name: image, label: Featured Image, widget: image, required: false },
+          { name: caption, label: Featured Caption, widget: text, required: false }
         ]}
 
   - name: staff
     label: Staff
+    editor:
+      preview: true
     folder: content/staff
     create: true
-    slug: "{{name}}"
-    preview_path: staff/{{slug}}
+    slug: "{{ name }}"
     identifier_field: name
     fields:
       - { name: "name", label: "Name", widget: "string" }
@@ -134,11 +243,12 @@ collections:
 
   - name: clients
     label: Clients
+    editor:
+      preview: false
     folder: content/clients
     create: true
-    slug: "{{fields.slug}}"
-    preview_path: clients/{{slug}}
-    identifier_field: slug
+    slug: "{{ fields.slug }}"
+    identifier_field: name
     fields:
       - { name: "name", label: "Name", widget: "string" }
       - { name: "slug", label: "Slug", widget: "string" }
@@ -148,3 +258,95 @@ collections:
       - { name: "display", label: "Display Where?", widget: "select", multiple: true, default: [ "Clients" ],
           options: [ "Clients", "Featured" ]
         }
+
+  - name: location
+    label: Locations
+    editor:
+      preview: false
+    create: true
+    slug: "{{ fields.slug }}"
+    folder: content/locations
+    fields:
+      - { label: Title,     name: title,     widget: string }
+      - { label: Intro,     name: intro,     widget: markdown }
+      - { label: Name,      name: name,      widget: string }
+      - { label: Address,   name: address,   widget: string }
+      - { label: Photo,     name: photo,     widget: image }
+      - { label: Longitude, name: longitude, widget: number,    valueType: float }
+      - { label: Latitude,  name: latitude,  widget: number,    valueType: float }
+
+  - name: pages
+    label: Page
+    delete: false
+    editor:
+      preview: true
+
+    files:
+
+      # The about page, which loads the "locations" objects to display
+      - file: content/pages/about.md
+        label: About
+        name: about-page
+        fields:
+          - { label: Template, name: template, widget: hidden, default: AboutPage }
+          - { label: Slug, name: slug, widget: hidden, default: about }
+          - { label: Title, name: title, widget: string }
+          - { label: Intro, name: intro, widget: markdown }
+          - { name: featured, label: Featured, widget: object, required: false, fields: [
+              { name: image, label: Featured Image, widget: image, required: false },
+              { name: caption, label: Featured Caption, widget: text, required: false }
+            ]}
+
+      # The page that lists the blog categories and allows searching all "posts"
+      - file: content/pages/blog.md
+        label: Blog
+        name: blog-page
+        fields:
+          - { label: Template, name: template, widget: hidden, default: BlogIndex }
+          - { label: URL Slug, name: slug, widget: hidden, default: blog }
+          - { label: Title, name: title, widget: string }
+          - { label: Featured Image, name: featuredImage, widget: image }
+          - { label: Subtitle, name: subtitle, widget: markdown }
+
+      # Solutions page
+      - file: content/pages/solutions.md
+        label: Solution Category
+        name: solutions-page
+        fields:
+          - { label: Template, name: template, widget: hidden, default: SolutionsPage }
+          - { label: Slug, name: slug, widget: hidden, default: solutions }
+          - { label: Title, name: title, widget: string }
+          - { label: Featured Image, name: featuredImage, widget: image }
+          - { label: Subtitle, name: subtitle, widget: markdown }
+          - { label: Body, name: body, widget: markdown }
+
+      # Clients page, which loads the 'clients' objects
+      - file: content/pages/clients.md
+        label: Clients
+        name: clients-page
+        fields:
+          - { label: Template, name: template, widget: hidden, default: ClientsPage }
+          - { label: Slug, name: slug, widget: hidden, default: clients }
+          - { label: Title, name: title, widget: string }
+          - { label: Featured Image, name: featuredImage, widget: image }
+          - { label: Subtitle, name: subtitle, widget: markdown }
+          - { label: Body, name: body, widget: markdown }
+
+      # The home / main / index / landing page
+      - file: content/pages/home.md
+        label: Home
+        name: home-page
+        fields:
+          - { label: Template, name: template, widget: hidden, default: HomePage }
+          - { label: Slug, name: slug, widget: hidden, default: '' }
+          - { label: Title, name: title, widget: string }
+          - { label: Subtitle, name: subtitle, widget: markdown }
+          - { label: Body, name: body, widget: markdown }
+          # Images to cycle through in the header area
+          - label: Images
+            name: images
+            widget: list
+            required: false
+            fields:
+              - { name: image, label: Image, widget: image, required: true }
+              - { name: caption, label: Caption, widget: text, required: false }
