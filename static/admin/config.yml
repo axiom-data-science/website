@@ -13,11 +13,11 @@ media_folder: static/assets
 public_folder: assets
 
 #publish_mode: editorial_workflow
-site_url: https://axiom-website.netlify.com/
+#site_url: https://axiom-website.netlify.com/
 
-slug:
-  encoding: "ascii"
-  clean_accents: true
+# slug:
+#   encoding: "ascii"
+#   clean_accents: true
 
 collections:
   # - name: blog
@@ -123,7 +123,7 @@ collections:
     editor:
       preview: true
     folder: content/posts
-    slug: "{{ year }}-{{ month }}-{{ day }}_{{ fields.slug }}"
+    slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}"
     create: true
     identifier_field: title
     fields:
@@ -294,7 +294,7 @@ collections:
         name: about-page
         fields:
           - { label: Template, name: template, widget: hidden, default: AboutPage }
-          - { label: Slug, name: slug, widget: hidden, default: about }
+          - { label: Slug, name: slug, widget: hidden, default: 'about' }
           - { label: Title, name: title, widget: string }
           - { label: Intro, name: intro, widget: markdown }
           - { name: featured, label: Featured, widget: object, required: false, fields: [
@@ -308,7 +308,7 @@ collections:
         name: blog-page
         fields:
           - { label: Template, name: template, widget: hidden, default: BlogIndex }
-          - { label: URL Slug, name: slug, widget: hidden, default: blog }
+          - { label: URL Slug, name: slug, widget: hidden, default: 'blog' }
           - { label: Title, name: title, widget: string }
           - { label: Featured Image, name: featuredImage, widget: image }
           - { label: Subtitle, name: subtitle, widget: markdown }
@@ -319,7 +319,7 @@ collections:
         name: solutions-page
         fields:
           - { label: Template, name: template, widget: hidden, default: SolutionsPage }
-          - { label: Slug, name: slug, widget: hidden, default: solutions }
+          - { label: Slug, name: slug, widget: hidden, default: 'solutions' }
           - { label: Title, name: title, widget: string }
           - { label: Featured Image, name: featuredImage, widget: image }
           - { label: Subtitle, name: subtitle, widget: markdown }
@@ -331,7 +331,7 @@ collections:
         name: clients-page
         fields:
           - { label: Template, name: template, widget: hidden, default: ClientsPage }
-          - { label: Slug, name: slug, widget: hidden, default: clients }
+          - { label: Slug, name: slug, widget: hidden, default: 'clients' }
           - { label: Title, name: title, widget: string }
           - { label: Featured Image, name: featuredImage, widget: image }
           - { label: Subtitle, name: subtitle, widget: markdown }
