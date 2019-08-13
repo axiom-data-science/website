@@ -7,5 +7,6 @@ intro: >-
   management, integration, and visualization. We support a variety of federal,
   private, academic and non-governmental organizations managing and conducting
   research in the ecological, geological and ocean sciences.
+featured: /assets/group1.jpg
 ---
 

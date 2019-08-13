@@ -297,13 +297,11 @@ collections:
         name: about-page
         fields:
           - { label: Template, name: template, widget: hidden, default: AboutPage }
-          - { label: Slug, name: slug, widget: hidden, default: 'about' }
+          - { label: "URL Sluge", name: slug, widget: hidden, default: 'about' }
           - { label: Title, name: title, widget: string }
           - { label: Intro, name: intro, widget: markdown }
-          - { name: featured, label: Featured, widget: object, required: false, fields: [
-              { name: image, label: "Featured Image", widget: image, required: false },
-              { name: caption, label: "Featured Caption", widget: text, required: false }
-            ]}
+          - { label: "Featured Image", name: featured, widget: image }
+          - { label: Body, name: body, widget: markdown, required: false }
 
       # The page that lists the blog categories and allows searching all "posts"
       - file: content/pages/blog.md
@@ -313,8 +311,9 @@ collections:
           - { label: Template, name: template, widget: hidden, default: BlogIndex }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'blog' }
           - { label: Title, name: title, widget: string }
-          - { label: "Featured Image", name: featuredImage, widget: image }
-          - { label: Subtitle, name: subtitle, widget: markdown }
+          - { label: Intro, name: intro, widget: markdown }
+          - { label: "Featured Image", name: featured, widget: image }
+          - { label: Body, name: body, widget: markdown, required: false }
 
       # Solutions page, listing all of the Solutions Categories
       - file: content/pages/solutions.md
@@ -324,9 +323,9 @@ collections:
           - { label: Template, name: template, widget: hidden, default: SolutionsIndex }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'solutions' }
           - { label: Title, name: title, widget: string }
-          - { label: "Featured Image", name: featuredImage, widget: image }
-          - { label: Subtitle, name: subtitle, widget: markdown }
-          - { label: Body, name: body, widget: markdown }
+          - { label: Intro, name: intro, widget: markdown }
+          - { label: "Featured Image", name: featured, widget: image }
+          - { label: Body, name: body, widget: markdown, required: false }
 
       # Clients page, which loads the 'clients' objects
       - file: content/pages/clients.md
@@ -336,9 +335,9 @@ collections:
           - { label: Template, name: template, widget: hidden, default: ClientsPage }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'clients' }
           - { label: Title, name: title, widget: string }
-          - { label: "Featured Image", name: featuredImage, widget: image }
-          - { label: Subtitle, name: subtitle, widget: markdown }
-          - { label: Body, name: body, widget: markdown }
+          - { label: Intro, name: intro, widget: markdown }
+          - { label: "Featured Image", name: featured, widget: image }
+          - { label: Body, name: body, widget: markdown, required: false }
 
       # The home / main / index / landing page
       - file: content/pages/home.md
@@ -348,8 +347,8 @@ collections:
           - { label: Template, name: template, widget: hidden, default: HomePage }
           - { label: "URL Slug", name: slug, widget: hidden, default: '' }
           - { label: Title, name: title, widget: string }
-          - { label: Subtitle, name: subtitle, widget: markdown }
-          - { label: Body, name: body, widget: markdown }
+          - { label: Intro, name: intro, widget: markdown }
+          - { label: Body, name: body, widget: markdown, required: false }
           # Images to cycle through in the header area
           - label: Images
             name: images
