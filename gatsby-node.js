@@ -67,7 +67,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // convert frontmatter images
   fmImagesToRelative(node)
 
-  // Create smart slugs based on `slug`, `relslug`, `title` and finally `name``
+  // Create smart slugs based on `slug`, `relslug`, `title` and then finally `name``
   let slug
   if (node.internal.type === 'MarkdownRemark') {
     const fileNode = getNode(node.parent)

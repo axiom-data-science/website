@@ -12,13 +12,10 @@ module.exports = {
   },
 
   plugins: [
-    'gatsby-plugin-react-helmet',
+    `gatsby-transformer-yaml`,
 
-    'gatsby-transformer-yaml',
-
-    // Convert files (JSON, Markdown) to React objects we can use in components
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/static/assets`,
         name: 'assets'
@@ -26,16 +23,16 @@ module.exports = {
     },
 
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content`,
-        name: 'pages'
+        name: `pages`
       }
     },
 
     // Images
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -44,17 +41,32 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 800
+              maxWidth: 1500
             },
           },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          `gatsby-remark-prismjs`,
+          {
+            resolve:`gatsby-remark-copy-linked-files`,
+            options:{
+              destinationDir:`${__dirname}/static`
+            }
+          },
+          `gatsby-remark-smartypants`,
         ],
       },
     },
 
-    'gatsby-plugin-sass',
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
 
     {
-      resolve: 'gatsby-plugin-nprogress',
+      resolve: `gatsby-plugin-nprogress`,
       options: {
         // Setting a color is optional.
         color: 'white',
@@ -63,16 +75,16 @@ module.exports = {
       }
     },
 
-    'gatsby-plugin-sitemap',
+    `gatsby-plugin-sitemap`,
 
     {
-      resolve: 'gatsby-plugin-netlify-cms',
+      resolve: `gatsby-plugin-netlify-cms`,
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`
       }
     },
 
-    'gatsby-plugin-netlify'
+    `gatsby-plugin-netlify`
 
   ]
 }

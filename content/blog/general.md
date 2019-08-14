@@ -1,5 +1,6 @@
 ---
 template: PostCategoryPage
-title: Company
+title: General
+relslug: general
 ---
 
