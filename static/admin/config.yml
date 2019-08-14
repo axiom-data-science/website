@@ -20,103 +20,6 @@ public_folder: assets
 #   clean_accents: true
 
 collections:
-  # - name: blog
-  #   label: Blog
-  #   folder: content/blog
-  #   create: true
-  #   slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}"
-  #   identifier_field: title
-  #   fields:
-  #     - { name: "title", label: "Title", widget: "string" }
-  #     - { name: "slug", label: "URL Slug", widget: "string" }
-  #     - { name: "date",  label: "Date",  widget: "date" }
-  #     - { name: "body",  label: "Body",  widget: "markdown" }
-  #     - { name: "featured", label: "Featured", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Featured Image", widget: "image", required: false },
-  #         { name: "caption", label: "Featured Caption", widget: "text", required: false }
-  #       ]}
-  #     - { name: "imageA", label: "Image A", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Image A Image", widget: "image", required: false },
-  #         { name: "caption", label: "Image A Caption", widget: "text", required: false }
-  #       ]}
-  #     - { name: "imageB", label: "Image B", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Image B Image", widget: "image", required: false },
-  #         { name: "caption", label: "Image B Caption", widget: "text", required: false }
-  #       ]}
-  #     - { name: "imageC", label: "Image C", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Image C Image", widget: "image", required: false },
-  #         { name: "caption", label: "Image C Caption", widget: "text", required: false }
-  #       ]}
-  #     - { name: "imageD", label: "Image D", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Image D Image", widget: "image", required: false },
-  #         { name: "caption", label: "Image D Caption", widget: "text", required: false }
-  #       ]}
-
-  # - name: portal_updates
-  #   label: Portal Updates
-  #   folder: content/updates/portal
-  #   create: true
-  #   slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}"
-  #   identifier_field: title
-  #   fields:
-  #     - { name: "title", label: "Title", widget: "string" }
-  #     - { name: "slug", label: "URL Slug", widget: "string" }
-  #     - { name: "version", label: "Version", widget: "string", required: false }
-  #     - { name: "date", label: "Date", widget: "date" }
-  #     - { name: "body", label: "Body", widget: "markdown" }
-  #     - { name: "featured", label: "Featured", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Featured Image", widget: "image", required: false },
-  #         { name: "caption", label: "Featured Caption", widget: "text", required: false }
-  #       ]}
-  #     - { name: "imageA", label: "Image A", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Image A Image", widget: "image", required: false },
-  #         { name: "caption", label: "Image A Caption", widget: "text", required: false }
-  #       ]}
-  #     - { name: "imageB", label: "Image B", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Image B Image", widget: "image", required: false },
-  #         { name: "caption", label: "Image B Caption", widget: "text", required: false }
-  #       ]}
-  #     - { name: "imageC", label: "Image C", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Image C Image", widget: "image", required: false },
-  #         { name: "caption", label: "Image C Caption", widget: "text", required: false }
-  #       ]}
-  #     - { name: "imageD", label: "Image D", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Image D Image", widget: "image", required: false },
-  #         { name: "caption", label: "Image D Caption", widget: "text", required: false }
-  #       ]}
-
-  # - name: atn_updates
-  #   label: ATN Updates
-  #   folder: content/updates/atn
-  #   create: true
-  #   slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}"
-  #   identifier_field: title
-  #   fields:
-  #     - { name: "title", label: "Title", widget: "string" }
-  #     - { name: "slug", label: "URL Slug", widget: "string" }
-  #     - { name: "version", label: "Version", widget: "string", required: false }
-  #     - { name: "date", label: "Date", widget: "date" }
-  #     - { name: "body", label: "Body", widget: "markdown" }
-  #     - { name: "featured", label: "Featured", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Featured Image", widget: "image", required: false },
-  #         { name: "caption", label: "Featured Caption", widget: "text", required: false }
-  #       ]}
-  #     - { name: "imageA", label: "Image A", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Image A Image", widget: "image", required: false },
-  #         { name: "caption", label: "Image A Caption", widget: "text", required: false }
-  #       ]}
-  #     - { name: "imageB", label: "Image B", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Image B Image", widget: "image", required: false },
-  #         { name: "caption", label: "Image B Caption", widget: "text", required: false }
-  #       ]}
-  #     - { name: "imageC", label: "Image C", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Image C Image", widget: "image", required: false },
-  #         { name: "caption", label: "Image C Caption", widget: "text", required: false }
-  #       ]}
-  #     - { name: "imageD", label: "Image D", widget: "object", required: false, fields: [
-  #         { name: "image", label: "Image D Image", widget: "image", required: false },
-  #         { name: "caption", label: "Image D Caption", widget: "text", required: false }
-  #       ]}
 
   - name: posts
     label: Post
@@ -257,7 +160,7 @@ collections:
     identifier_field: name
     fields:
       - { name: "name", label: "Name", widget: "string" }
-      - { name: "slug", label: "Slug", widget: "string" }
+      - { name: "slug", label: "URL Slug", widget: "string" }
       - { name: "url",  label: "URL",  widget: "string" }
       - { name: "logo", label: "Logo", widget: "image" }
       - { name: "body", label: "Description", widget: "markdown", required: false }
@@ -283,6 +186,56 @@ collections:
       - { label: MapsLink,  name: mapslink,  widget: string }
       - { label: Body,      name: body,      widget: markdown,  required: false }
 
+  # Generic informational pages
+  - name: information
+    label: Information Page
+    editor:
+      preview: true
+    create: true
+    folder: content/information
+    identifier_field: title
+    fields:
+      - { label: Template, name: template, widget: hidden, default: DefaultPage }
+      - { label: "URL Slug", name: slug, widget: string }
+      - { label: Title, name: title, widget: string }
+      - { label: Body, name: body, widget: markdown }
+      - { name: featured, label: Featured, widget: object, required: false, fields: [
+          { name: image, label: "Featured Image", widget: image, required: false },
+          { name: caption, label: "Featured Caption", widget: text, required: false }
+        ]}
+      - label: 'Images'
+        name: 'images'
+        widget: 'list'
+        required: false
+        fields:
+          - { name: image, label: Image, widget: image, required: true }
+          - { name: caption, label: Caption, widget: text, required: false }
+
+  - name: 'settings'
+    label: 'Settings'
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: 'content/settings.yml'
+        label: 'Global Settings'
+        name: 'global-settings'
+        fields:
+          - { label: Site Title, name: siteTitle, widget: string }
+          - { label: Site Url, name: siteUrl, widget: string, required: false }
+          - {
+              label: Site Description,
+              name: siteDescription,
+              widget: text,
+              required: false,
+            }
+          - {
+              label: Google Analytics Tracking Id,
+              name: googleTrackingId,
+              widget: string,
+              required: false,
+            }
+
   - name: pages
     label: Page
     delete: false
@@ -297,7 +250,7 @@ collections:
         name: about-page
         fields:
           - { label: Template, name: template, widget: hidden, default: AboutPage }
-          - { label: "URL Sluge", name: slug, widget: hidden, default: 'about' }
+          - { label: "URL Slug", name: slug, widget: hidden, default: 'about' }
           - { label: Title, name: title, widget: string }
           - { label: Intro, name: intro, widget: markdown }
           - { label: "Featured Image", name: featured, widget: image }
