@@ -6,6 +6,8 @@ slug: data-archive
 featured:
   image: /assets/potatoes1500x500.jpg
 images: []
+categories:
+  - category: Research Program Support
 ---
 Using the Research Workspace, researchers can generate Digital Object Identifiers (DOIs) for final data products and publish to national data repositories.
 
