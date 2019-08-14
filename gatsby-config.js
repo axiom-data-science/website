@@ -44,19 +44,19 @@ module.exports = {
               maxWidth: 1500
             },
           },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
+          // {
+          //   resolve: `gatsby-remark-responsive-iframe`,
+          //   options: {
+          //     wrapperStyle: `margin-bottom: 1.0725rem`,
+          //   },
+          // },
           `gatsby-remark-prismjs`,
-          {
-            resolve:`gatsby-remark-copy-linked-files`,
-            options:{
-              destinationDir:`${__dirname}/static`
-            }
-          },
+          // {
+          //   resolve:`gatsby-remark-copy-linked-files`,
+          //   options:{
+          //     destinationDir:`${__dirname}/static`
+          //   }
+          // },
           `gatsby-remark-smartypants`,
         ],
       },

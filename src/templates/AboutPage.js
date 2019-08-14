@@ -1,6 +1,7 @@
 import React from "react"
 import { MapPin } from "react-feather"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/Layout"
 import Content from "../components/Content"
@@ -8,43 +9,44 @@ import Content from "../components/Content"
 export const AboutPageTemplate = ({
   title,
   intro,
-  featured,
+  featuredImage,
   body,
-  address1,
-  address2,
-  latitude,
-  longitude,
-  mapslink,
+  locations,
 }) => (
   <main className="Contact">
     <p>{title}</p>
 
     <p>{intro}</p>
 
-    <p>{featured}</p>
+    <div>
+      <Img fluid={featuredImage.childImageSharp.fluid} />
+    </div>
 
-    <section className="section Contact--Section1">
-      <div className="container Contact--Section1--Container">
-        <div>
-          <div className="Contact--Details">
-            {address1 && address2 && (
-              <a
-                className="Contact--Details--Item"
-                href={`https://www.google.com.au/maps/search/${encodeURI(
-                  `{address1},{address2}`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MapPin /> {address1}, {address2}
-              </a>
-            )}
+    {locations.nodes.map(loc => {
+      let l = loc.frontmatter
+      return (
+        <section>
+          <div>
+            <div>
+              <div>
+                {l.address1 && l.address2 && (
+                  <a
+                    href={l.mapslink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Img fixed={l.photo.childImageSharp.fixed} />
+                    <MapPin /> {l.address1}, {l.address2}
+                  </a>
+                )}
+              </div>
+
+              <Content source={body} />
+            </div>
           </div>
-
-          <Content source={body} />
-        </div>
-      </div>
-    </section>
+        </section>
+      )
+    })}
   </main>
 )
 
@@ -53,7 +55,11 @@ const AboutPage = ({ data: { page, locations } }) => (
     meta={page.frontmatter.meta || false}
     title={page.frontmatter.title || false}
   >
-    <AboutPageTemplate {...page.frontmatter} {...locations} body={page.html} />
+    <AboutPageTemplate
+      {...page.frontmatter}
+      locations={locations}
+      body={page.html}
+    />
   </Layout>
 )
 
@@ -68,7 +74,7 @@ export const pageQuery = graphql`
         template
         title
         intro
-        featured {
+        featuredImage {
           childImageSharp {
             fluid(maxWidth: 1500) {
               ...GatsbyImageSharpFluid_noBase64
@@ -81,19 +87,20 @@ export const pageQuery = graphql`
     locations: allMarkdownRemark(
       filter: { fields: { contentType: { eq: "locations" } } }
     ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            address1
-            address2
-            latitude
-            longitude
-            mapslink
+      nodes {
+        frontmatter {
+          address1
+          address2
+          title
+          latitude
+          longitude
+          mapslink
+          photo {
+            childImageSharp {
+              fixed(width: 500) {
+                ...GatsbyImageSharpFixed_noBase64
+              }
+            }
           }
         }
       }
