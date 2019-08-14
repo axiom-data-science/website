@@ -1,9 +1,11 @@
 ---
 template: SingleSolution
 title: Data Archive
+subtitle: Streamlined archive pathways and DOI generation
 slug: data-archive
-images:
-  - image: /assets/dataone_logo.jpeg
+featured:
+  image: /assets/potatoes1500x500.jpg
+images: []
 ---
 Using the Research Workspace, researchers can generate Digital Object Identifiers (DOIs) for final data products and publish to national data repositories.
 
