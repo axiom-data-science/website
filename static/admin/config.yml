@@ -30,9 +30,9 @@ collections:
     create: true
     identifier_field: title
     fields:
-      - { label: Template, name: template, widget: hidden, default: SinglePost }
+      - { label: Template, name: template, widget: hidden, default: PostPage }
       - { label: Title, name: title, widget: string }
-      - { label: "URL Slug", name: slug, widget: string }
+      - { label: "Relative URL Slug", name: relslug, widget: string }
       - { label: Date, name: date, widget: date }
       - { label: Body, name: body, widget: markdown }
       - { name: featured, label: Featured, widget: object, required: false, fields: [
@@ -58,16 +58,15 @@ collections:
             searchFields: ['title']
             valueField: 'title'
 
-  - name: postCategories
-    label: Post Category
+  - name: blogs
+    label: Blogs
     editor:
       preview: false
-    folder: content/postCategories
-    slug: "{{slug}}"
+    folder: content/blogs
     create: true
     identifier_field: title
     fields:
-      - { label: Template, name: template, widget: hidden, default: BlogIndex }
+      - { label: Template, name: template, widget: hidden, default: PostCategoryPage }
       - { label: Title, name: title, widget: string }
       - { label: Subtitle, name: subtitle, widget: string, required: false }
       - { name: featured, label: Featured, widget: object, required: false, fields: [
@@ -75,19 +74,17 @@ collections:
           { name: caption, label: "Featured Caption", widget: text, required: false }
         ]}
 
-  - name: solution
-    label: Solution
+  - name: solutions
+    label: Solutions
     editor:
       preview: true
     folder: content/solutions
-    slug: "{{fields.slug}}"
     create: true
-    identifier_field: title
     fields:
-      - { label: Template, name: template, widget: hidden, default: SingleSolution }
+      - { label: Template, name: template, widget: hidden, default: SolutionCategoryPage }
       - { label: Title, name: title, widget: string }
       - { label: Subtitle, name: subtitle, widget: string, required: false }
-      - { label: "URL Slug", name: slug, widget: string }
+      - { label: "Relative URL Slug", name: relslug, widget: string }
       - { label: Body, name: body, widget: markdown }
       - { name: featured, label: Featured, widget: object, required: false, fields: [
           { name: image, label: "Featured Image", widget: image, required: false },
@@ -117,11 +114,10 @@ collections:
     editor:
       preview: false
     folder: content/solutionCategories
-    slug: "{{fields.slug}}"
     create: true
     identifier_field: title
     fields:
-      - { label: Template, name: template, widget: hidden, default: SolutionIndex }
+      - { label: Template, name: template, widget: hidden, default: SolutionCategoryPage }
       - { label: Title, name: title, widget: string }
       - { label: Subtitle, name: subtitle, widget: string, required: false }
       - { label: "URL Slug", name: slug, widget: string }
@@ -168,7 +164,7 @@ collections:
           options: [ "Clients", "Featured" ]
         }
 
-  - name: location
+  - name: locations
     label: Locations
     editor:
       preview: false
@@ -187,16 +183,16 @@ collections:
       - { label: Body,      name: body,      widget: markdown,  required: false }
 
   # Generic informational pages
-  - name: information
+  - name: info
     label: Information Page
     editor:
       preview: true
     create: true
-    folder: content/information
+    folder: content/info
     identifier_field: title
     fields:
       - { label: Template, name: template, widget: hidden, default: DefaultPage }
-      - { label: "URL Slug", name: slug, widget: string }
+      - { label: "Relative URL Slug", name: relslug, widget: string }
       - { label: Title, name: title, widget: string }
       - { label: Body, name: body, widget: markdown }
       - { name: featured, label: Featured, widget: object, required: false, fields: [
@@ -258,10 +254,10 @@ collections:
 
       # The page that lists the blog categories and allows searching all "posts"
       - file: content/pages/blog.md
-        label: Blog
+        label: Blog Categories
         name: blog-page
         fields:
-          - { label: Template, name: template, widget: hidden, default: BlogIndex }
+          - { label: Template, name: template, widget: hidden, default: PostCategoryPage }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'blog' }
           - { label: Title, name: title, widget: string }
           - { label: Intro, name: intro, widget: markdown }
@@ -271,9 +267,9 @@ collections:
       # Solutions page, listing all of the Solutions Categories
       - file: content/pages/solutions.md
         label: Solution Categories
-        name: solutions-page
+        name: solution-category-page
         fields:
-          - { label: Template, name: template, widget: hidden, default: SolutionsIndex }
+          - { label: Template, name: template, widget: hidden, default: SolutionCategoryPage }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'solutions' }
           - { label: Title, name: title, widget: string }
           - { label: Intro, name: intro, widget: markdown }

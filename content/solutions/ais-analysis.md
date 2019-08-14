@@ -1,10 +1,10 @@
 ---
-template: SingleSolution
+template: SolutionPage
 title: Automatic Identification System (AIS) Vessel Traffic Analysis
 subtitle: >-
   Reducing analysis time for NOAA’s Office of Coastal Survey from months to
   hours
-slug: ais-analysis
+relslug: ais-analysis
 featured:
   caption: CONUS heatmap of AIS tracks over an entire year
   image: /assets/ais-preview.jpg

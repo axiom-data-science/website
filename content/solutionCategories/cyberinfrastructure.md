@@ -1,5 +1,5 @@
 ---
-template: SolutionIndex
+template: SolutionCategoryPage
 title: Cyberinfrastructure
 subtitle: >-
     Axiom provides technology, infrastructure, and expertise that connects people to research programs and scientific data.

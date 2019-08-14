@@ -1,10 +1,10 @@
 ---
-template: SingleSolution
+template: SolutionPage
 title: Technology
 subtitle: >-
   Developing tools and solutions for data management, integration and
   visualization
-slug: technology
+relslug: technology
 featured:
   image: /assets/pjj2017-lyra.jpg
 categories:

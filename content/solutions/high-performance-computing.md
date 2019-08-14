@@ -1,8 +1,8 @@
 ---
-template: SingleSolution
+template: SolutionPage
 title: Infrastructure and HPC
 subtitle: Secure and scalable in-house and cloud-based high-performance-computing (HPC)
-slug: high-performance-computing
+relslug: high-performance-computing
 featured:
   caption: Shane checking on his IG
   image: /assets/PittockBuild-20170218-21.jpg

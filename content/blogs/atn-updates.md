@@ -1,4 +1,4 @@
 ---
-template: BlogIndex
+template: PostCategoryPage
 title: ATN Updates
 ---

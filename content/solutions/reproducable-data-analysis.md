@@ -1,7 +1,7 @@
 ---
-template: SingleSolution
+template: SolutionPage
 title: Reproducable Data Analysis
-slug: reproducable-data-analysis
+relslug: reproducable-data-analysis
 featured:
   image: /assets/potatoes1500x500.jpg
 categories:

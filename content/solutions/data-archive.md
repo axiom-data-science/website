@@ -1,8 +1,8 @@
 ---
-template: SingleSolution
+template: SolutionPage
 title: Data Archive
 subtitle: Streamlined archive pathways and DOI generation
-slug: data-archive
+relslug: data-archive
 featured:
   image: /assets/potatoes1500x500.jpg
 images: []

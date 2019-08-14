@@ -1,7 +1,7 @@
 ---
-template: SingleSolution
+template: SolutionPage
 title: Metadata Authoring
-slug: metadata-authoring
+relslug: metadata-authoring
 featured:
   image: /assets/potatoes1500x500.jpg
 categories:

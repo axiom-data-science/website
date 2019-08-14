@@ -1,5 +1,5 @@
 ---
-template: SolutionIndex
+template: SolutionCategoryPage
 title: Research Program Support
 subtitle: >-
   Collection, analysis, access, reuse and archival - we work with research

@@ -1,7 +1,7 @@
 ---
-template: SinglePost
+template: PostPage
 title: Fire Island Robotics Team Impresses Axiom!
-slug: fire-island-robotics
+relslug: fire-island-robotics
 date: 2016-03-04T00:00:00.000Z
 featured:
   image: /assets/FI_ROBOT.thumb.jpg

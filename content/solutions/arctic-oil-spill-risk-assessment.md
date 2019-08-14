@@ -1,8 +1,8 @@
 ---
-template: SingleSolution
+template: SolutionPage
 title: Arctic Oil Spill Risk Assessment
 subtitle: Analysing the potential risk of marine oil spills in Alaska
-slug: arctic-oil-spill-risk-assessment
+relslug: arctic-oil-spill-risk-assessment
 featured:
   caption: Sample of relative risk for the region
   image: /assets/risk_sample.png

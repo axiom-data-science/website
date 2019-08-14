@@ -1,7 +1,7 @@
 ---
-template: SinglePost
+template: PostPage
 title: "2.5 Release Notes"
-slug: "2-5-release-notes"
+relslug: "2-5-release-notes"
 date: 2018-02-01T00:00:00.000Z
 featured:
   image: /assets/v2.5image1.png

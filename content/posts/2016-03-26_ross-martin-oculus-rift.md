@@ -1,7 +1,7 @@
 ---
-template: SinglePost
+template: PostPage
 title: Axiom Staff, Ross Martin, is the 1st Oculus Rift Customer
-slug: ross-martin-oculus-rift
+relslug: ross-martin-oculus-rift
 date: 2016-03-26T00:00:00.000Z
 featured:
   image: /assets/OCULUS_RIFT.jpg

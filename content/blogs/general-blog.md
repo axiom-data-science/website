@@ -1,0 +1,5 @@
+---
+template: PostCategoryPage
+title: Company
+---
+

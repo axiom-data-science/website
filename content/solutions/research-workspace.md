@@ -1,8 +1,8 @@
 ---
-template: SingleSolution
+template: SolutionPage
 title: Research Workspace
 subtitle: Collaboratively manage science projects through the entire data lifecycle
-slug: research-workspace
+relslug: research-workspace
 featured:
   image: /assets/research_workspace.png
 categories:

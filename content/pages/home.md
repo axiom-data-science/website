@@ -1,5 +1,6 @@
 ---
 title: Home
+template: HomePage
 intro: >-
   Axiom is cool and warm.
 images:

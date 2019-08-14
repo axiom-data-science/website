@@ -1,7 +1,7 @@
 ---
-template: SinglePost
+template: PostPage
 title: Axiom In the News!
-slug: axiom-in-the-news
+relslug: axiom-in-the-news
 date: 2016-04-22T00:00:00.000Z
 categories:
   - category: Company Blog

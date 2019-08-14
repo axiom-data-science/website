@@ -1,8 +1,8 @@
 ---
-template: SingleSolution
+template: SolutionPage
 title: Neural Network Classification of Harmful Algal Blooms
 subtitle: Developing a classifier for phytoplankton images for species identification
-slug: neural-network-harmful-algal-blooms
+relslug: neural-network-harmful-algal-blooms
 featured:
   image: /assets/hab.jpg
 categories:
