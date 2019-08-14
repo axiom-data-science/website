@@ -7,7 +7,7 @@ images:
 ---
 Using the Research Workspace, researchers can generate Digital Object Identifiers (DOIs) for final data products and publish to national data repositories.
 
-Axiom’s data repository is a DataONE Generic Member Node, connected to the DataONE Network. As a DataCite member organization, Axiom is able to reserve and assign DOIs to all archived objects in the Research Workspace DataONE Member Node. In addition, a pipeline to NOAA’s National Centers for Environmental Information (NCEI) is under development.
+Axiom’s data repository is a DataONE Generic Member Node, connected to the [DataONE Network](https://www.dataone.org/). As a [DataCite](https://www.datacite.org/) member organization, Axiom is able to reserve and assign DOIs to all archived objects in the Research Workspace DataONE Member Node. In addition, a pipeline to NOAA’s National Centers for Environmental Information ([NCEI](https://www.ncei.noaa.gov/)) is under development.
 
 ## Information
 
