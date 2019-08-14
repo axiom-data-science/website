@@ -43,6 +43,8 @@
     "react-feather": "^2.0.3",
     "react-helmet": "^5.2.1",
     "react-markdown": "^4.1.0",
+    "slate": "^0.47.4",
+    "webpack": "^4.39.2",
     "yarn": "^1.17.3"
   },
   "devDependencies": {
