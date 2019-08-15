@@ -1,15 +1,15 @@
 import React from "react"
-import CMS from "netlify-cms"
+import CMS from "netlify-cms-app"
 import "./cms-utils"
 
-import HomePageTemplate from "../templates/HomePage"
-import SolutionCategoryPageTemplate from "../templates/SolutionCategoryPage"
-import SolutionPageTemplate from "../templates/SolutionPage"
-import AboutPageTemplate from "../templates/AboutPage"
-import DefaultPageTemplate from "../templates/DefaultPage"
-import PostCategoryPageTemplate from "../templates/PostCategoryPage"
 import PostPageTemplate from "../templates/PostPage"
-import ClientPageTemplate from "../templates/ClientPage"
+import DefaultPageTemplate from "../templates/DefaultPage"
+import SolutionPageTemplate from "../templates/SolutionPage"
+// import SolutionCategoryPageTemplate from "../templates/SolutionCategoryPage"
+// import HomePageTemplate from "../templates/HomePage"
+// import AboutPageTemplate from "../templates/AboutPage"
+// import PostCategoryPageTemplate from "../templates/PostCategoryPage"
+// import ClientPageTemplate from "../templates/ClientPage"
 
 if (
   window.location.hostname === "localhost" &&
@@ -22,21 +22,21 @@ if (
   CMS.registerPreviewStyle("/styles.css")
 }
 
-CMS.registerPreviewTemplate("home-page", ({ entry }) => (
-  <HomePageTemplate {...entry.toJS().data} />
-))
-CMS.registerPreviewTemplate("clients-page", ({ entry }) => (
-  <ClientPageTemplate {...entry.toJS().data} />
-))
-CMS.registerPreviewTemplate("about-page", ({ entry }) => (
-  <AboutPageTemplate {...entry.toJS().data} />
-))
-CMS.registerPreviewTemplate("blog-page", ({ entry }) => (
-  <PostCategoryPageTemplate {...entry.toJS().data} />
-))
-CMS.registerPreviewTemplate("solution-category-page", ({ entry }) => (
-  <SolutionCategoryPageTemplate {...entry.toJS().data} />
-))
+// CMS.registerPreviewTemplate("home-page", ({ entry }) => (
+//   <HomePageTemplate {...entry.toJS().data} />
+// ))
+// CMS.registerPreviewTemplate("clients-page", ({ entry }) => (
+//   <ClientPageTemplate {...entry.toJS().data} />
+// ))
+// CMS.registerPreviewTemplate("about-page", ({ entry }) => (
+//   <AboutPageTemplate {...entry.toJS().data} locations={ {nodes: [] } } />
+// ))
+// CMS.registerPreviewTemplate("solution-category-page", ({ entry }) => (
+//   <SolutionCategoryPageTemplate {...entry.toJS().data} />
+// ))
+// CMS.registerPreviewTemplate("blog-page", ({ entry }) => (
+//   <PostCategoryPageTemplate {...entry.toJS().data} />
+// ))
 CMS.registerPreviewTemplate("posts", ({ entry }) => (
   <PostPageTemplate {...entry.toJS().data} />
 ))
