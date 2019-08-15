@@ -6,8 +6,13 @@ featured:
   image: /assets/potatoes1500x500.jpg
 categories:
   - category: Research Program Support
+meta:
+  description: ''
+  title: ''
+  canonicalLink: ''
+  noindex: ''
 ---
-Reproducibility is fundamental to public trust in the scientific process. Preserving scripts used for data processing and analysis is important for leaving a legacy of reproducible, credible results. 
+Reproducibility is fundamental to public trust in the scientific process. Preserving scripts used for data processing and analysis is important for leaving a legacy of reproducible, credible results.
 
 The Research Workspace features a cloud-based Jupyter notebook integration to let users write numerical workflows and scripts from anywhere in the world that leverage their uploaded datasets. This allows computationally-intense scripts to be developed and run from any web-capable device, such as a laptop or Chromebook.
 

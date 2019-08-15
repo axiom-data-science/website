@@ -13,6 +13,11 @@ images:
       Individual pages for glider deployments, including 3D data charting and trajecotry parsing (left). Depth filtering of profiling sensor available with user-selected methods of interpolation (right).
 categories:
   - category: Portal Updates
+meta:
+  description: ''
+  title: ''
+  canonicalLink: ''
+  noindex: ''
 ---
 #### Release Summary
 

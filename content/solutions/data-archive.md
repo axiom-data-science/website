@@ -8,6 +8,11 @@ featured:
 images: []
 categories:
   - category: Research Program Support
+meta:
+  description: ''
+  title: ''
+  canonicalLink: ''
+  noindex: ''
 ---
 Using the Research Workspace, researchers can generate Digital Object Identifiers (DOIs) for final data products and publish to national data repositories.
 

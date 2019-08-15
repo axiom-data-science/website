@@ -7,6 +7,11 @@ featured:
   image: /assets/atn.v.1.1.1.jpg
 categories:
   - category: ATN Updates
+meta:
+  description: ''
+  title: ''
+  canonicalLink: ''
+  noindex: ''
 ---
 #### Release Summary
 
@@ -15,7 +20,7 @@ The beta version 1.1 features additional project level mapping functionality bas
 #### New Features
 
 *  Portal enhancements:
-  *  Ability to load project data sets (i.e. non real-time data sources) to map and display them 
-  *  Project profile page includes integrated map with all tags  
+  *  Ability to load project data sets (i.e. non real-time data sources) to map and display them
+  *  Project profile page includes integrated map with all tags
   *  Early version of user help documentation
 *  Bug fixes

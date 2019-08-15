@@ -22,7 +22,7 @@ public_folder: assets
 collections:
 
   - name: posts
-    label: Post
+    label: Posts
     editor:
       preview: true
     folder: content/posts
@@ -57,6 +57,12 @@ collections:
             collection: 'blogs'
             searchFields: ['title']
             valueField: 'title'
+      - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
+          { label: Title,          name: title,         widget: string,  required: false },
+          { label: Description,    name: description,   widget: text,    required: false },
+          { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
+          { label: Noindex,        name: noindex,       widget: boolean, required: false }
+        ]}
 
   - name: blogs
     label: Blogs
@@ -70,10 +76,24 @@ collections:
       - { label: Title, name: title, widget: string }
       - { label: "Relative URL Slug", name: relslug, widget: string }
       - { label: Subtitle, name: subtitle, widget: string, required: false }
-      - { name: featured, label: Featured, widget: object, required: false, fields: [
+      - { label: Featured, name: featured, widget: object, required: false, fields: [
           { name: image, label: "Featured Image", widget: image, required: false },
           { name: caption, label: "Featured Caption", widget: text, required: false }
         ]}
+
+  - name: testimonials
+    label: Testimonials
+    editor:
+      preview: true
+    folder: content/testimonials
+    create: true
+    identifier_field: id
+    fields:
+      - { label: Id, name: id, widget: string }
+      - { label: Name, name: name, widget: string }
+      - { label: Content, name: Content, widget: string }
+      - { label: Affiliation, name: affiliation, widget: string, required: false }
+      - { label: Headshot, name: headshot, widget: image, required: false }
 
   - name: solutions
     label: Solutions
@@ -110,6 +130,23 @@ collections:
             collection: 'solutionCategories'
             searchFields: ['title']
             valueField: 'title'
+      - label: Testimonials
+        name: testimonials
+        widget: list
+        required: false
+        fields:
+          - label: Testimonial
+            name: testimonial
+            widget: relation
+            collection: testimonials
+            searchFields: ['id', 'name', 'affiliation']
+            valueField: 'id'
+      - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
+          { label: Title,          name: title,         widget: string,  required: false },
+          { label: Description,    name: description,   widget: text,    required: false },
+          { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
+          { label: Noindex,        name: noindex,       widget: boolean, required: false }
+        ]}
 
   - name: solutionCategories
     label: Solution Categories
@@ -128,6 +165,12 @@ collections:
           { name: image, label: "Featured Image", widget: image, required: false },
           { name: caption, label: "Featured Caption", widget: text, required: false }
         ]}
+      - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
+          { label: Title,          name: title,         widget: string,  required: false },
+          { label: Description,    name: description,   widget: text,    required: false },
+          { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
+          { label: Noindex,        name: noindex,       widget: boolean, required: false }
+        ]}
 
   - name: staff
     label: Staff
@@ -144,8 +187,8 @@ collections:
       - { name: "headshot", label: "Headshot", widget: "image" }
       - { name: "body", label: "Bio", widget: "markdown" }
       - { name: "funny", label: "Funny", widget: "object", required: false, fields: [
-          { name: "headshot", label: "Funny Headshot", widget: "image", required: false },
-          { name: "bio", label: "Funny Bio", widget: "markdown", required: false }
+          { name: "funny_headshot", label: "Funny Headshot", widget: "image", required: false },
+          { name: "funny_bio", label: "Funny Bio", widget: "markdown", required: false }
         ]}
 
   - name: clients
@@ -208,6 +251,12 @@ collections:
         fields:
           - { name: image, label: Image, widget: image, required: true }
           - { name: caption, label: Caption, widget: text, required: false }
+      - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
+          { label: Title,          name: title,         widget: string,  required: false },
+          { label: Description,    name: description,   widget: text,    required: false },
+          { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
+          { label: Noindex,        name: noindex,       widget: boolean, required: false }
+        ]}
 
   - name: 'settings'
     label: 'Settings'
@@ -253,6 +302,12 @@ collections:
           - { label: Intro, name: intro, widget: markdown }
           - { label: "Featured Image", name: featuredImage, widget: "image" }
           - { label: Body, name: body, widget: markdown, required: false }
+          - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
+              { label: Title,          name: title,         widget: string,  required: false },
+              { label: Description,    name: description,   widget: text,    required: false },
+              { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
+              { label: Noindex,        name: noindex,       widget: boolean, required: false }
+            ]}
 
       # The page that lists the blog categories and allows searching all "posts"
       - file: content/pages/blog.md
@@ -265,6 +320,12 @@ collections:
           - { label: Intro, name: intro, widget: markdown }
           - { label: "Featured Image", name: featuredImage, widget: "image" }
           - { label: Body, name: body, widget: markdown, required: false }
+          - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
+              { label: Title,          name: title,         widget: string,  required: false },
+              { label: Description,    name: description,   widget: text,    required: false },
+              { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
+              { label: Noindex,        name: noindex,       widget: boolean, required: false }
+            ]}
 
       # Solutions page, listing all of the Solutions Categories
       - file: content/pages/solutions.md
@@ -277,6 +338,12 @@ collections:
           - { label: Intro, name: intro, widget: markdown }
           - { label: "Featured Image", name: featuredImage, widget: "image" }
           - { label: Body, name: body, widget: markdown, required: false }
+          - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
+              { label: Title,          name: title,         widget: string,  required: false },
+              { label: Description,    name: description,   widget: text,    required: false },
+              { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
+              { label: Noindex,        name: noindex,       widget: boolean, required: false }
+            ]}
 
       # Clients page, which loads the 'clients' objects
       - file: content/pages/clients.md
@@ -289,6 +356,12 @@ collections:
           - { label: Intro, name: intro, widget: markdown }
           - { label: "Featured Image", name: featuredImage, widget: "image" }
           - { label: Body, name: body, widget: markdown, required: false }
+          - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
+              { label: Title,          name: title,         widget: string,  required: false },
+              { label: Description,    name: description,   widget: text,    required: false },
+              { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
+              { label: Noindex,        name: noindex,       widget: boolean, required: false }
+            ]}
 
       # The home / main / index / landing page
       - file: content/pages/home.md
@@ -308,3 +381,9 @@ collections:
             fields:
               - { name: image, label: Image, widget: "image", required: true }
               - { name: caption, label: Caption, widget: text, required: false }
+          - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
+              { label: Title,          name: title,         widget: string,  required: false },
+              { label: Description,    name: description,   widget: text,    required: false },
+              { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
+              { label: Noindex,        name: noindex,       widget: boolean, required: false }
+            ]}

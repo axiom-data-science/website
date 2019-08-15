@@ -7,7 +7,12 @@ date: 2016-05-04T00:00:00.000Z
 featured:
   image: /assets/CIBW.thumb.jpg
 categories:
-  - category: Company Blog
+  - category: General
+meta:
+  description: ''
+  title: ''
+  canonicalLink: ''
+  noindex: ''
 ---
 Government agencies and the public can now find information on the endangered population of Cook Inlet beluga whales on an easy-to-use public data portal through the Alaska Ocean Observing System’s website at AOOS.org. Extensive data on beluga whale sightings and environmental conditions in Cook Inlet has been collected over the past decade, but most of it is not easily found or used by both the public and agency experts. The new Cook Inlet Beluga Whale Ecosystem Portal is intended to correct that by integrating and visualizing beluga whale sighting data with other biological, physical, and socio-economic data in the Cook Inlet region. The portal is freely accessible and aims to improve the management and public awareness of Cook Inlet beluga whales.
 

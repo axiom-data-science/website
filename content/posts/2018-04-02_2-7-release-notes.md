@@ -9,10 +9,15 @@ featured:
     Real-time conditions and trend lines are available on feature hover.
 images:
   - image: /assets/2.7_2.png
-    caption: >- 
+    caption: >-
       Sensor data are partitioned into real-time and historical time periods. Users can change the default time period view under map Settings. Or, by toggling between real-time and historical conditions within the chart view.
 categories:
-  - category: Portal Updates        
+  - category: Portal Updates
+meta:
+  description: ''
+  title: ''
+  canonicalLink: ''
+  noindex: ''
 ---
 #### Release Summary
 
@@ -21,11 +26,11 @@ The 2.7 version replaces the beta 2.6 version with an operational version of the
 
 #### New Features
 
-*  Preview of real-time data streams on feature hover 
+*  Preview of real-time data streams on feature hover
 *  Partitioning of real-time and historical data to quicken load time
     *  Users can change default time period views for the entire map under Settings
-    *  Or, users can toggle between data time period options within charts 
-*  Data views respect relative time period selection (e.g. real-time data will auto-refresh within a data view, if the real-time time period is selected) 
+    *  Or, users can toggle between data time period options within charts
+*  Data views respect relative time period selection (e.g. real-time data will auto-refresh within a data view, if the real-time time period is selected)
 *  Bug fixes for biological data layers and biodiversity index calculations
 *  Migration of existing data layers from the earlier portal version (1.0 generation) to the 2.7 map interface
 *  Introduction of branded versions of help documentation

@@ -19,6 +19,11 @@ images:
       Interactive Help
 categories:
   - category: Portal Updates
+meta:
+  description: ''
+  title: ''
+  canonicalLink: ''
+  noindex: ''
 ---
 #### Release Summary
 

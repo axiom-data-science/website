@@ -10,11 +10,16 @@ featured:
   image: /assets/ais-preview.jpg
 categories:
   - category: Big Data Analytics
+meta:
+  description: ''
+  title: ''
+  canonicalLink: ''
+  noindex: ''
 ---
 The Automatic Identification System is a system of shipboard transmitters and both land-based and satellite-based receivers that broadcast and record vessel locations. While traditionally used for real-time maritime applications, there is increasing interest in using these rich datasets to provide insight into a wide array of oceanographic challenges, such as:
 
 * Prioritizing hydrographic surveys,
-* Predicting the probability and impact of oil spills, 
+* Predicting the probability and impact of oil spills,
 * Quantifying the amount of vessel interactions with marine wildlife,
 * and more
 

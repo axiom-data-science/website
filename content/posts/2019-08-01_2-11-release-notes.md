@@ -9,6 +9,11 @@ images:
   - image: /assets/v2.11.2.png
 categories:
   - category: Portal Updates
+meta:
+  description: ''
+  title: ''
+  canonicalLink: ''
+  noindex: ''
 ---
 #### Release Summary
 
