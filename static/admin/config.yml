@@ -54,15 +54,15 @@ collections:
           - label: 'Category'
             name: 'category'
             widget: 'relation'
-            collection: 'blog'
+            collection: 'blogs'
             searchFields: ['title']
             valueField: 'title'
 
-  - name: blog
-    label: Blog
+  - name: blogs
+    label: Blogs
     editor:
       preview: false
-    folder: content/blog
+    folder: content/blogs
     create: true
     identifier_field: title
     fields:

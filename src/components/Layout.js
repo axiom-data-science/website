@@ -20,7 +20,7 @@ export default ({ children, meta, title }) => {
             }
           }
           allPosts: allMarkdownRemark(
-            filter: { fields: { contentType: { eq: "blog" } } }
+            filter: { fields: { contentType: { eq: "blogs" } } }
             sort: { order: DESC, fields: [frontmatter___date] }
           ) {
             edges {
