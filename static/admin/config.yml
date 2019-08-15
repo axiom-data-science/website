@@ -165,6 +165,17 @@ collections:
           { name: image, label: "Featured Image", widget: image, required: false },
           { name: caption, label: "Featured Caption", widget: text, required: false }
         ]}
+      - label: Testimonials
+        name: testimonials
+        widget: list
+        required: false
+        fields:
+          - label: Testimonial
+            name: testimonial
+            widget: relation
+            collection: testimonials
+            searchFields: ['id', 'name', 'affiliation']
+            valueField: 'id'
       - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
           { label: Title,          name: title,         widget: string,  required: false },
           { label: Description,    name: description,   widget: text,    required: false },
@@ -251,6 +262,17 @@ collections:
         fields:
           - { name: image, label: Image, widget: image, required: true }
           - { name: caption, label: Caption, widget: text, required: false }
+      - label: Testimonials
+        name: testimonials
+        widget: list
+        required: false
+        fields:
+          - label: Testimonial
+            name: testimonial
+            widget: relation
+            collection: testimonials
+            searchFields: ['id', 'name', 'affiliation']
+            valueField: 'id'
       - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
           { label: Title,          name: title,         widget: string,  required: false },
           { label: Description,    name: description,   widget: text,    required: false },
@@ -381,6 +403,17 @@ collections:
             fields:
               - { name: image, label: Image, widget: "image", required: true }
               - { name: caption, label: Caption, widget: text, required: false }
+          - label: Testimonials
+            name: testimonials
+            widget: list
+            required: false
+            fields:
+              - label: Testimonial
+                name: testimonial
+                widget: relation
+                collection: testimonials
+                searchFields: ['id', 'name', 'affiliation']
+                valueField: 'id'
           - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
               { label: Title,          name: title,         widget: string,  required: false },
               { label: Description,    name: description,   widget: text,    required: false },
