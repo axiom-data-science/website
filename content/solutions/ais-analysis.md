@@ -10,6 +10,8 @@ featured:
   image: /assets/ais-preview.jpg
 categories:
   - category: Big Data Analytics
+testimonials:
+  - testimonial: Ollie the Oyster - AIS Comments
 meta:
   canonicalLink: ''
   description: ''
