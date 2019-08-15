@@ -12,7 +12,7 @@ meta:
   description: ''
   title: ''
   canonicalLink: ''
-  noindex: ''
+  noindex: false
 ---
 Using the Research Workspace, researchers can generate Digital Object Identifiers (DOIs) for final data products and publish to national data repositories.
 

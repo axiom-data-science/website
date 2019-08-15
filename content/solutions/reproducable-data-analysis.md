@@ -10,7 +10,7 @@ meta:
   description: ''
   title: ''
   canonicalLink: ''
-  noindex: ''
+  noindex: false
 ---
 Reproducibility is fundamental to public trust in the scientific process. Preserving scripts used for data processing and analysis is important for leaving a legacy of reproducible, credible results.
 

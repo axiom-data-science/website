@@ -10,7 +10,7 @@ meta:
   description: ''
   title: ''
   canonicalLink: ''
-  noindex: ''
+  noindex: false
 ---
 The Research Workspace includes a tool to author metadata for scientific projects and datasets. As a cloud-based service, the metadata editor allows for metadata to be viewed and edited from any computer connected to the internet, and for more than one person to simultaneously review and edit metadata. In addition to field or themed-based entry forms, the editor includes a number of custom widgets to address common pain points. The editor exports ISO 19115 and 19110 standards metadata records.
 

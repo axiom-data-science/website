@@ -11,7 +11,7 @@ meta:
   description: ''
   title: ''
   canonicalLink: ''
-  noindex: ''
+  noindex: false
 ---
 Not every [bloom of phytoplankton](https://www.cencoos.org/learn/blooms) is dangerous. Numbers of phytoplankton naturally increase if conditions are good.  However, some phytoplankton species produce toxins, or they occur such high numbers that they clog fish gills or remove all the oxygen from the water when they decompose.  These dangerous conditions are called a [Harmful Algal Bloom](https://www.cencoos.org/learn/blooms/habs/impacts) (HAB). It’s important to alert the public when a HAB is occuring, but it’s equally important not to give false alarms.
 

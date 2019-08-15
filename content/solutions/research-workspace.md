@@ -11,7 +11,7 @@ meta:
   description: ''
   title: ''
   canonicalLink: ''
-  noindex: ''
+  noindex: false
 ---
 The Research Workspace is a web-based platform for collaboratively managing science projects through the entire data lifecycle. It allows research scientists, data managers, and program administrators a secure way to store and organize data within individual projects and research campaigns.
 

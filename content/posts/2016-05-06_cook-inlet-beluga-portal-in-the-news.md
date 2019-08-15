@@ -12,7 +12,7 @@ meta:
   description: ''
   title: ''
   canonicalLink: ''
-  noindex: ''
+  noindex: false
 ---
 Axiom Data Science, in partnership with the Alaska Ocean Observing System, NOAA, and the Cook Inlet Regional Citizens Advisory Council (CIRCAC), has featured the public release of the Cook Inlet Beluga Whale Ecosystem Portal in the following news articles and radio broadcast:
 

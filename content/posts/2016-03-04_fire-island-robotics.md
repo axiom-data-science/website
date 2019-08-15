@@ -11,6 +11,6 @@ meta:
   description: ''
   title: ''
   canonicalLink: ''
-  noindex: ''
+  noindex: false
 ---
 The [Fire Island Robotics Team](https://www.facebook.com/FireIslandRobotics/) paid a visit to Axiom headquarters in Anchorage, Alaska, to demonstrate their technical expertise and learn about engineering career choices. Axiom staff were very impressed with the robotic teams' efforts and enjoyed the opportunity to engage with young, bright minds.

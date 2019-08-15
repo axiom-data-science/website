@@ -12,7 +12,7 @@ meta:
   description: ''
   title: ''
   canonicalLink: ''
-  noindex: ''
+  noindex: false
 ---
 Communities along the Alaskan coast depend on fishing and hunting to feed themselves and maintain their cultural heritage. Although it seems the Beaufort Sea is remote and pure, oil development and shipping also occur there.  These activities increase the risk of oil spills, and spills could endanger the environment that local people depend upon.
 
