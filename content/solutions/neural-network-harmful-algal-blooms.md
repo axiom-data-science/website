@@ -5,7 +5,7 @@ subtitle: Developing a classifier for phytoplankton images for species identific
 relslug: neural-network-harmful-algal-blooms
 featured:
   image: /assets/hab.jpg
-categories:
+solution_categories:
   - category: Big Data Analytics
 meta:
   description: ''

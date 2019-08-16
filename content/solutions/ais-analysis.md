@@ -8,7 +8,7 @@ relslug: ais-analysis
 featured:
   caption: CONUS heatmap of AIS tracks over an entire year
   image: /assets/ais-preview.jpg
-categories:
+solution_categories:
   - category: Big Data Analytics
 testimonials:
   - testimonial: Ollie the Oyster - AIS Comments

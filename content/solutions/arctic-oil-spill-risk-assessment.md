@@ -6,8 +6,10 @@ relslug: arctic-oil-spill-risk-assessment
 featured:
   caption: Sample of relative risk for the region
   image: /assets/risk_sample.png
-categories:
+solution_categories:
   - category: Big Data Analytics
+testimonials:
+  - testimonial: Ollie the Oyster - AIS Comments  
 meta:
   description: ''
   title: ''

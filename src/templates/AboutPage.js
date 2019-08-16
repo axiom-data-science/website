@@ -8,20 +8,25 @@ import Content from "../components/Content"
 
 export const AboutPageTemplate = ({
   title,
-  intro,
-  featuredImage,
+  subtitle,
+  featured,
   body,
   locations,
 }) => (
-  <main className="Contact">
+  <main>
+
+    <h1>Title</h1>
     <p>{title}</p>
 
-    <p>{intro}</p>
+    <h1>Subtitle</h1>
+    <p>{subtitle}</p>
 
+    <h1>Feature</h1>
     <div>
-      <Img fluid={featuredImage.childImageSharp.fluid} />
+      <Img fluid={featured.image.childImageSharp.fluid} />
     </div>
 
+    <h1>Locations</h1>
     {locations.nodes.map(loc => {
       let l = loc.frontmatter
       return (
@@ -40,13 +45,15 @@ export const AboutPageTemplate = ({
                   </a>
                 )}
               </div>
-
-              <Content source={body} />
             </div>
           </div>
         </section>
       )
     })}
+
+    <h1>Content</h1>
+    <Content source={body} />
+
   </main>
 )
 
@@ -73,11 +80,13 @@ export const pageQuery = graphql`
       frontmatter {
         template
         title
-        intro
-        featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 1500) {
-              ...GatsbyImageSharpFluid_noBase64
+        subtitle
+        featured {
+          image {
+            childImageSharp {
+              fluid(maxWidth: 1500) {
+                ...GatsbyImageSharpFluid_noBase64
+              }
             }
           }
         }

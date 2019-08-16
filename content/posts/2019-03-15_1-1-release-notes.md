@@ -5,7 +5,7 @@ relslug: "1-1-release-notes"
 date: 2019-03-15T00:00:00.000Z
 featured:
   image: /assets/atn.v.1.1.1.jpg
-categories:
+blog_categories:
   - category: ATN Updates
 meta:
   description: ''

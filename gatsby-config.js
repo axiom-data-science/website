@@ -11,6 +11,14 @@ module.exports = {
     siteUrl: 'https://axiom-website.netlify.com/'
   },
 
+  mapping: {
+    'MarkdownRemark.fields.posts': `MarkdownRemark`,
+    'MarkdownRemark.fields.blogs': `MarkdownRemark`,
+    'MarkdownRemark.fields.solutions': `MarkdownRemark`,
+    'MarkdownRemark.fields.testimonials': `MarkdownRemark`,
+    'MarkdownRemark.fields.solutionCategories': `MarkdownRemark`,
+  },
+
   plugins: [
     `gatsby-transformer-yaml`,
 

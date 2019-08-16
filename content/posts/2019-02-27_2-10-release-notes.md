@@ -11,7 +11,7 @@ images:
   - image: /assets/v.2.10.2.png
     caption: >-
       Data quality test display for flagged sensor data streams.
-categories:
+blog_categories:
   - category: Portal Updates
 meta:
   description: ''

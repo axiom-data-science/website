@@ -37,12 +37,12 @@ if (
 // CMS.registerPreviewTemplate("blog-page", ({ entry }) => (
 //   <PostCategoryPageTemplate {...entry.toJS().data} />
 // ))
-CMS.registerPreviewTemplate("posts", ({ entry }) => (
-  <PostPageTemplate {...entry.toJS().data} />
-))
-CMS.registerPreviewTemplate("solutions", ({ entry }) => (
-  <SolutionPageTemplate {...entry.toJS().data} />
-))
-CMS.registerPreviewTemplate("info", ({ entry }) => (
-  <DefaultPageTemplate {...entry.toJS().data} />
-))
+// CMS.registerPreviewTemplate("posts", ({ entry }) => (
+//   <PostPageTemplate {...entry.toJS().data} />
+// ))
+// CMS.registerPreviewTemplate("solutions", ({ entry }) => (
+//   <SolutionPageTemplate {...entry.toJS().data} />
+// ))
+// CMS.registerPreviewTemplate("info", ({ entry }) => (
+//   <DefaultPageTemplate {...entry.toJS().data} />
+// ))

@@ -6,7 +6,7 @@ relslug: high-performance-computing
 featured:
   caption: Shane checking on his IG
   image: /assets/PittockBuild-20170218-21.jpg
-categories:
+solution_categories:
   - category: Cyberinfrastructure
 meta:
   description: ''

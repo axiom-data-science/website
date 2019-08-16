@@ -6,8 +6,10 @@ relslug: data-archive
 featured:
   image: /assets/potatoes1500x500.jpg
 images: []
-categories:
+solution_categories:
   - category: Research Program Support
+testimonials:
+  - testimonial: Ollie the Oyster - AIS Comments  
 meta:
   description: ''
   title: ''

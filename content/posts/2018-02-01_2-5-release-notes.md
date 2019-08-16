@@ -11,7 +11,7 @@ images:
   - image: /assets/v2.5image2.png
     caption: >-
       Biological data can be added to custom Data Views and compared with physical, environmental, or spatially-quiered model data (e.g. virtual sensor) for data comparison (right).
-categories:
+blog_categories:
   - category: Portal Updates
 meta:
   description: ''

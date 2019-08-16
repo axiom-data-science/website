@@ -5,7 +5,7 @@ relslug: fire-island-robotics
 date: 2016-03-04T00:00:00.000Z
 featured:
   image: /assets/FI_ROBOT.thumb.jpg
-categories:
+blog_categories:
   - category: General
 meta:
   description: ''

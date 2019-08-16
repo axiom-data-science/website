@@ -11,7 +11,7 @@ images:
   - image: /assets/2.7_2.png
     caption: >-
       Sensor data are partitioned into real-time and historical time periods. Users can change the default time period view under map Settings. Or, by toggling between real-time and historical conditions within the chart view.
-categories:
+blog_categories:
   - category: Portal Updates
 meta:
   description: ''

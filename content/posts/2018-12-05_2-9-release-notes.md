@@ -17,7 +17,7 @@ images:
   - image: /assets/v2.9.4.png
     caption: >-
       Interactive Help
-categories:
+blog_categories:
   - category: Portal Updates
 meta:
   description: ''

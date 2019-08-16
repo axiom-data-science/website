@@ -19,6 +19,49 @@ public_folder: assets
 #   encoding: "ascii"
 #   clean_accents: true
 
+
+testimonials: &testimonials
+  label: Testimonials
+  name: testimonials
+  widget: list
+  required: false
+  fields:
+    - label: Testimonial
+      name: testimonial
+      widget: relation
+      collection: testimonials
+      searchFields: ['uid', 'name', 'affiliation']
+      valueField: 'uid'
+
+metafields: &metafields
+  label: 'Meta'
+  name: 'meta'
+  widget: 'object'
+  required: false
+  fields:
+    - { label: Title,          name: title,         widget: string,  required: false }
+    - { label: Description,    name: description,   widget: text,    required: false }
+    - { label: Canonical Link, name: canonicalLink, widget: string,  required: false }
+    - { label: Noindex,        name: noindex,       widget: boolean, required: false }
+
+featuredImage: &featuredImage
+  name: featured
+  label: Featured
+  widget: object
+  required: false
+  fields:
+    - { name: image, label: "Featured Image", widget: image, required: false }
+    - { name: caption, label: "Featured Caption", widget: text, required: false }
+
+imageList: &imageList
+  label: 'Images'
+  name: 'images'
+  widget: 'list'
+  required: false
+  fields:
+    - { name: image, label: Image, widget: image, required: true }
+    - { name: caption, label: Caption, widget: text, required: false }
+
 collections:
 
   - name: posts
@@ -35,19 +78,8 @@ collections:
       - { label: "Relative URL Slug", name: relslug, widget: string }
       - { label: Date, name: date, widget: date }
       - { label: Body, name: body, widget: markdown }
-      - { name: featured, label: Featured, widget: object, required: false, fields: [
-          { name: image, label: "Featured Image", widget: image, required: false },
-          { name: caption, label: "Featured Caption", widget: text, required: false }
-        ]}
-      - label: 'Images'
-        name: 'images'
-        widget: 'list'
-        required: false
-        fields:
-          - { name: image, label: Image, widget: image, required: true }
-          - { name: caption, label: Caption, widget: text, required: false }
       - label: 'Categories'
-        name: 'categories'
+        name: 'blog_categories'
         widget: 'list'
         required: false
         fields:
@@ -57,12 +89,9 @@ collections:
             collection: 'blogs'
             searchFields: ['title']
             valueField: 'title'
-      - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
-          { label: Title,          name: title,         widget: string,  required: false },
-          { label: Description,    name: description,   widget: text,    required: false },
-          { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
-          { label: Noindex,        name: noindex,       widget: boolean, required: false }
-        ]}
+      - *featuredImage
+      - *testimonials
+      - *metafields
 
   - name: blogs
     label: Blogs
@@ -76,10 +105,7 @@ collections:
       - { label: Title, name: title, widget: string }
       - { label: "Relative URL Slug", name: relslug, widget: string }
       - { label: Subtitle, name: subtitle, widget: string, required: false }
-      - { label: Featured, name: featured, widget: object, required: false, fields: [
-          { name: image, label: "Featured Image", widget: image, required: false },
-          { name: caption, label: "Featured Caption", widget: text, required: false }
-        ]}
+      - *featuredImage
 
   - name: testimonials
     label: Testimonials
@@ -87,11 +113,11 @@ collections:
       preview: true
     folder: content/testimonials
     create: true
-    identifier_field: id
+    identifier_field: uid
     fields:
-      - { label: Id, name: id, widget: string }
+      - { label: 'Unique ID', name: uid, widget: string }
       - { label: Name, name: name, widget: string }
-      - { label: Content, name: Content, widget: string }
+      - { label: Content, name: content, widget: string }
       - { label: Affiliation, name: affiliation, widget: string, required: false }
       - { label: Headshot, name: headshot, widget: image, required: false }
 
@@ -103,24 +129,13 @@ collections:
     create: true
     identifier_field: title
     fields:
-      - { label: Template, name: template, widget: hidden, default: SolutionCategoryPage }
+      - { label: Template, name: template, widget: hidden, default: SolutionPage }
       - { label: Title, name: title, widget: string }
       - { label: Subtitle, name: subtitle, widget: string, required: false }
       - { label: "Relative URL Slug", name: relslug, widget: string }
       - { label: Body, name: body, widget: markdown }
-      - { name: featured, label: Featured, widget: object, required: false, fields: [
-          { name: image, label: "Featured Image", widget: image, required: false },
-          { name: caption, label: "Featured Caption", widget: text, required: false }
-        ]}
-      - label: 'Images'
-        name: 'images'
-        widget: 'list'
-        required: false
-        fields:
-          - { name: image, label: Image, widget: image, required: true }
-          - { name: caption, label: Caption, widget: text, required: false }
       - label: 'Categories'
-        name: 'categories'
+        name: 'solution_categories'
         widget: 'list'
         required: false
         fields:
@@ -130,23 +145,10 @@ collections:
             collection: 'solutionCategories'
             searchFields: ['title']
             valueField: 'title'
-      - label: Testimonials
-        name: testimonials
-        widget: list
-        required: false
-        fields:
-          - label: Testimonial
-            name: testimonial
-            widget: relation
-            collection: testimonials
-            searchFields: ['id', 'name', 'affiliation']
-            valueField: 'id'
-      - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
-          { label: Title,          name: title,         widget: string,  required: false },
-          { label: Description,    name: description,   widget: text,    required: false },
-          { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
-          { label: Noindex,        name: noindex,       widget: boolean, required: false }
-        ]}
+      - *featuredImage
+      - *imageList
+      - *testimonials
+      - *metafields
 
   - name: solutionCategories
     label: Solution Categories
@@ -161,27 +163,9 @@ collections:
       - { label: Subtitle, name: subtitle, widget: string, required: false }
       - { label: "URL Slug", name: slug, widget: string }
       - { label: Body, name: body, widget: markdown, required: false }
-      - { name: featured, label: Featured, widget: object, required: false, fields: [
-          { name: image, label: "Featured Image", widget: image, required: false },
-          { name: caption, label: "Featured Caption", widget: text, required: false }
-        ]}
-      - label: Testimonials
-        name: testimonials
-        widget: list
-        required: false
-        fields:
-          - label: Testimonial
-            name: testimonial
-            widget: relation
-            collection: testimonials
-            searchFields: ['id', 'name', 'affiliation']
-            valueField: 'id'
-      - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
-          { label: Title,          name: title,         widget: string,  required: false },
-          { label: Description,    name: description,   widget: text,    required: false },
-          { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
-          { label: Noindex,        name: noindex,       widget: boolean, required: false }
-        ]}
+      - *featuredImage
+      - *testimonials
+      - *metafields
 
   - name: staff
     label: Staff
@@ -250,35 +234,12 @@ collections:
       - { label: Template, name: template, widget: hidden, default: DefaultPage }
       - { label: "Relative URL Slug", name: relslug, widget: string }
       - { label: Title, name: title, widget: string }
+      - { label: Subtitle, name: subtitle, widget: string, required: false }
       - { label: Body, name: body, widget: markdown }
-      - { name: featured, label: Featured, widget: object, required: false, fields: [
-          { name: image, label: "Featured Image", widget: image, required: false },
-          { name: caption, label: "Featured Caption", widget: text, required: false }
-        ]}
-      - label: 'Images'
-        name: 'images'
-        widget: 'list'
-        required: false
-        fields:
-          - { name: image, label: Image, widget: image, required: true }
-          - { name: caption, label: Caption, widget: text, required: false }
-      - label: Testimonials
-        name: testimonials
-        widget: list
-        required: false
-        fields:
-          - label: Testimonial
-            name: testimonial
-            widget: relation
-            collection: testimonials
-            searchFields: ['id', 'name', 'affiliation']
-            valueField: 'id'
-      - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
-          { label: Title,          name: title,         widget: string,  required: false },
-          { label: Description,    name: description,   widget: text,    required: false },
-          { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
-          { label: Noindex,        name: noindex,       widget: boolean, required: false }
-        ]}
+      - *featuredImage
+      - *imageList
+      - *testimonials
+      - *metafields
 
   - name: 'settings'
     label: 'Settings'
@@ -321,15 +282,10 @@ collections:
           - { label: Template, name: template, widget: hidden, default: AboutPage }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'about' }
           - { label: Title, name: title, widget: string }
-          - { label: Intro, name: intro, widget: markdown }
-          - { label: "Featured Image", name: featuredImage, widget: "image" }
+          - { label: Subtitle, name: subtitle, widget: markdown }
           - { label: Body, name: body, widget: markdown, required: false }
-          - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
-              { label: Title,          name: title,         widget: string,  required: false },
-              { label: Description,    name: description,   widget: text,    required: false },
-              { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
-              { label: Noindex,        name: noindex,       widget: boolean, required: false }
-            ]}
+          - *featuredImage
+          - *metafields
 
       # The page that lists the blog categories and allows searching all "posts"
       - file: content/pages/blog.md
@@ -339,15 +295,10 @@ collections:
           - { label: Template, name: template, widget: hidden, default: PostCategoryPage }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'blog' }
           - { label: Title, name: title, widget: string }
-          - { label: Intro, name: intro, widget: markdown }
-          - { label: "Featured Image", name: featuredImage, widget: "image" }
+          - { label: Subtitle, name: subtitle, widget: markdown }
           - { label: Body, name: body, widget: markdown, required: false }
-          - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
-              { label: Title,          name: title,         widget: string,  required: false },
-              { label: Description,    name: description,   widget: text,    required: false },
-              { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
-              { label: Noindex,        name: noindex,       widget: boolean, required: false }
-            ]}
+          - *featuredImage
+          - *metafields
 
       # Solutions page, listing all of the Solutions Categories
       - file: content/pages/solutions.md
@@ -357,15 +308,10 @@ collections:
           - { label: Template, name: template, widget: hidden, default: SolutionCategoryPage }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'solutions' }
           - { label: Title, name: title, widget: string }
-          - { label: Intro, name: intro, widget: markdown }
-          - { label: "Featured Image", name: featuredImage, widget: "image" }
+          - { label: Subtitle, name: subtitle, widget: markdown }
           - { label: Body, name: body, widget: markdown, required: false }
-          - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
-              { label: Title,          name: title,         widget: string,  required: false },
-              { label: Description,    name: description,   widget: text,    required: false },
-              { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
-              { label: Noindex,        name: noindex,       widget: boolean, required: false }
-            ]}
+          - *featuredImage
+          - *metafields
 
       # Clients page, which loads the 'clients' objects
       - file: content/pages/clients.md
@@ -375,15 +321,10 @@ collections:
           - { label: Template, name: template, widget: hidden, default: ClientsPage }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'clients' }
           - { label: Title, name: title, widget: string }
-          - { label: Intro, name: intro, widget: markdown }
-          - { label: "Featured Image", name: featuredImage, widget: "image" }
+          - { label: Subtitle, name: subtitle, widget: markdown }
           - { label: Body, name: body, widget: markdown, required: false }
-          - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
-              { label: Title,          name: title,         widget: string,  required: false },
-              { label: Description,    name: description,   widget: text,    required: false },
-              { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
-              { label: Noindex,        name: noindex,       widget: boolean, required: false }
-            ]}
+          - *featuredImage
+          - *metafields
 
       # The home / main / index / landing page
       - file: content/pages/home.md
@@ -393,30 +334,8 @@ collections:
           - { label: Template, name: template, widget: hidden, default: HomePage }
           - { label: "URL Slug", name: slug, widget: hidden, default: '' }
           - { label: Title, name: title, widget: string }
-          - { label: Intro, name: intro, widget: markdown }
+          - { label: Subtitle, name: subtitle, widget: markdown }
           - { label: Body, name: body, widget: markdown, required: false }
-          # Images to cycle through in the header area
-          - label: Images
-            name: images
-            widget: list
-            required: false
-            fields:
-              - { name: image, label: Image, widget: "image", required: true }
-              - { name: caption, label: Caption, widget: text, required: false }
-          - label: Testimonials
-            name: testimonials
-            widget: list
-            required: false
-            fields:
-              - label: Testimonial
-                name: testimonial
-                widget: relation
-                collection: testimonials
-                searchFields: ['id', 'name', 'affiliation']
-                valueField: 'id'
-          - { label: 'Meta', name: 'meta', widget: 'object', required: false, fields: [
-              { label: Title,          name: title,         widget: string,  required: false },
-              { label: Description,    name: description,   widget: text,    required: false },
-              { label: Canonical Link, name: canonicalLink, widget: string,  required: false },
-              { label: Noindex,        name: noindex,       widget: boolean, required: false }
-            ]}
+          - *imageList
+          - *testimonials
+          - *metafields

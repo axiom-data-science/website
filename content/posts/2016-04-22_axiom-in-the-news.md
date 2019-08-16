@@ -3,7 +3,7 @@ template: PostPage
 title: Axiom In the News!
 relslug: axiom-in-the-news
 date: 2016-04-22T00:00:00.000Z
-categories:
+blog_categories:
   - category: General
 meta:
   description: ''

@@ -6,7 +6,7 @@ relslug: cook-inlet-beluga-portal-in-the-news
 date: 2016-05-04T00:00:00.000Z
 featured:
   image: /assets/CIBW2.jpg
-categories:
+blog_categories:
   - category: General
 meta:
   description: ''

@@ -5,7 +5,7 @@ relslug: ross-martin-oculus-rift
 date: 2016-03-26T00:00:00.000Z
 featured:
   image: /assets/OCULUS_RIFT.jpg
-categories:
+blog_categories:
   - category: General
 meta:
   description: ''

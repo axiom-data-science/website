@@ -6,18 +6,22 @@ import Layout from "../components/Layout"
 
 export const ClientPageTemplate = ({
   title,
-  intro,
-  featuredImage,
+  subtitle,
+  featured,
   body,
   clients,
 }) => (
   <main className="Contact">
+
+    <h1>Title</h1>
     <p>{title}</p>
 
-    <p>{intro}</p>
+    <h1>Subtitle</h1>
+    <p>{subtitle}</p>
 
+    <h1>Feature</h1>
     <div>
-      <Img fluid={featuredImage.childImageSharp.fluid} />
+      <Img fluid={featured.image.childImageSharp.fluid} />
     </div>
 
     {clients.nodes.map(client => {
@@ -58,11 +62,13 @@ export const pageQuery = graphql`
       frontmatter {
         template
         title
-        intro
-        featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 1500) {
-              ...GatsbyImageSharpFluid_noBase64
+        subtitle
+        featured {
+          image {
+            childImageSharp {
+              fluid(maxWidth: 1500) {
+                ...GatsbyImageSharpFluid_noBase64
+              }
             }
           }
         }

@@ -7,7 +7,7 @@ subtitle: >-
 relslug: technology
 featured:
   image: /assets/pjj2017-lyra.jpg
-categories:
+solution_categories:
   - category: Cyberinfrastructure
 meta:
   description: ''

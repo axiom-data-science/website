@@ -12,6 +12,8 @@ images:
     image: /assets/Bio-Workshop_1.jpg
   - caption: Image 3 caption!
     image: /assets/IMG_0018.jpg
+testimonials:
+  - testimonial: Ollie the Oyster - AIS Comments
 meta:
   noindex: true
 ---

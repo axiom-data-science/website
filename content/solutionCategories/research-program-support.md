@@ -7,6 +7,8 @@ subtitle: >-
 slug: research-program-support
 featured:
   image: /assets/NPRB_SEARCH.thumb.jpg
+testimonials:
+  - testimonial: Ollie the Oyster - AIS Comments
 meta:
   description: ''
   title: ''

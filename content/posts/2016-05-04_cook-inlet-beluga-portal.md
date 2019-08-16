@@ -6,8 +6,10 @@ relslug: cook-inlet-beluga-portal
 date: 2016-05-04T00:00:00.000Z
 featured:
   image: /assets/CIBW.thumb.jpg
-categories:
+blog_categories:
   - category: General
+testimonials:
+  - testimonial: Ollie the Oyster - AIS Comments  
 meta:
   description: ''
   title: ''

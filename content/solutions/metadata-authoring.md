@@ -4,7 +4,7 @@ title: Metadata Authoring
 relslug: metadata-authoring
 featured:
   image: /assets/potatoes1500x500.jpg
-categories:
+solution_categories:
   - category: Research Program Support
 meta:
   description: ''

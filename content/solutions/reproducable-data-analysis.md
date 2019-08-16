@@ -4,7 +4,7 @@ title: Reproducable Data Analysis
 relslug: reproducable-data-analysis
 featured:
   image: /assets/potatoes1500x500.jpg
-categories:
+solution_categories:
   - category: Research Program Support
 meta:
   description: ''

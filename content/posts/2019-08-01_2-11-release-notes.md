@@ -7,7 +7,7 @@ featured:
   image: /assets/v2.11.1.png
 images:
   - image: /assets/v2.11.2.png
-categories:
+blog_categories:
   - category: Portal Updates
 meta:
   description: ''

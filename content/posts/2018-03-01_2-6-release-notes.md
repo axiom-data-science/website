@@ -11,7 +11,7 @@ images:
   - image: /assets/v2.6image2.png
     caption: >-
       The number of layers within a Data Catalog module were summarized for quick reference.  Users can quickly downloaded data using interoperability from with the Catalog and data layer views.
-categories:
+blog_categories:
   - category: Portal Updates
 ---
 #### Release Summary

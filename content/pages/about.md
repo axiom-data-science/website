@@ -2,8 +2,9 @@
 title: About
 slug: about
 template: AboutPage
-featuredImage: /assets/group1.jpg
-intro: >-
+featured:
+  image: /assets/group1.jpg
+subtitle: >-
   Axiom Data Science is an informatics and software development firm focused on
   developing scalable solutions which can be leveraged across a variety of
   users, clients and institutions in order to make the best tools for data

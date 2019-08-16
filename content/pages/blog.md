@@ -2,9 +2,10 @@
 title: Blog
 slug: blog
 template: PostCategoryPage
-intro: >-
+subtitle: >-
   Stay up to date and informed... follow our posts here and on social media!
-featuredImage: /assets/3belugas_kfrost.jpg
+featured:
+  image: /assets/3belugas_kfrost.jpg
 meta:
   description: ''
   title: ''

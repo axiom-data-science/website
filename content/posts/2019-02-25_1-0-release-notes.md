@@ -6,7 +6,7 @@ version: '1.0'
 date: 2019-02-25T00:00:00.000Z
 featured:
   image: /assets/atn.v.1.0.1.png
-categories:
+blog_categories:
   - category: ATN Updates
 meta:
   description: ''

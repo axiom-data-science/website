@@ -9,7 +9,7 @@ featured:
   image: /assets/ambon2015_groupphotocropped1-1024x452.jpg
 images:
   - image: /assets/walrus-500x333.jpg
-categories:
+blog_categories:
   - category: General
 meta:
   canonicalLink: ''

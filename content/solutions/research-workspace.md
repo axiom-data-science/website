@@ -5,7 +5,7 @@ subtitle: Collaboratively manage science projects through the entire data lifecy
 relslug: research-workspace
 featured:
   image: /assets/research_workspace.png
-categories:
+solution_categories:
   - category: Research Program Support
 meta:
   description: ''

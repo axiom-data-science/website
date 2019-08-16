@@ -11,7 +11,7 @@ images:
   - image: /assets/v2.3_image2.png
     caption: >-
       Station level pages both station data alongside metadata and source information (left). Data sources are discoverable with links to individual stations (right).
-categories:
+blog_categories:
   - category: Portal Updates
 meta:
   description: ''

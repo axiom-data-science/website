@@ -61,6 +61,133 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
+// sourceNodes instead of onCreateNode so plugins will have created all nodes already
+exports.sourceNodes = ({ actions, getNodes, getNode }) => {
+  const { createNodeField } = actions
+  //
+  // Create relations
+
+  // // solutions -> testimonials
+  // testimonialsOfSolutions = {}
+  // // solutionCategories -> testimonials
+  // testimonialsOfSolutionCategories = {}
+  // // info -> testimonials
+  // testimonialsOfInfo = {}
+  // // home -> testimonials
+  // testimonialsOfHome = {}
+  // solutionCategory -> solution
+  // solutionsOfSolutionCategory = {}
+  // blogs -> posts
+  // postsOfBlogs = {}
+
+  const getTestimonal = uid => getNodes().find(
+    node2 =>
+      node2.internal.type === `MarkdownRemark` &&
+      node2.frontmatter.uid === uid
+  )
+
+  const getBlog = title => getNodes().find(
+    node2 =>
+      node2.internal.type === `MarkdownRemark` &&
+      node2.frontmatter.title === title
+  )
+
+  const getSolutionCategory = title => getNodes().find(
+    node2 =>
+      node2.internal.type === `MarkdownRemark` &&
+      node2.frontmatter.title === title
+  )
+
+  const postNodes = title => getNodes().filter(
+    node2 =>
+      node2.internal.type === `MarkdownRemark` &&
+      path.parse(getNode(node2.parent).relativePath).dir == 'posts' &&
+      node2.frontmatter.blog_categories.map(e => e.category).indexOf(title) > -1
+  )
+
+  const solutionNodes = title => getNodes().filter(
+    node2 =>
+      node2.internal.type === `MarkdownRemark` &&
+      path.parse(getNode(node2.parent).relativePath).dir == 'solutions' &&
+      node2.frontmatter.solution_categories.map(e => e.category).indexOf(title) > -1
+  )
+
+  // iterate thorugh all markdown nodes to link books to author
+  // and build author index
+  const markdownNodes = getNodes()
+    .filter(node => node.internal.type === `MarkdownRemark`)
+    .forEach(node => {
+
+      const fileNode = getNode(node.parent)
+      const parsedFilePath = path.parse(fileNode.relativePath)
+
+      // If testimonials is defined in the front matter match them to
+      // uids of testimonmials and return the ID for gatsby to do the
+      // mapping itself. There is no reverse mapping for testimonials.
+      if (['solutions', 'solutionCategories', 'info', 'pages', 'posts'].indexOf(node.fields.contentType) > -1) {
+        if (node.frontmatter.testimonials) {
+          let nodeIds = node.frontmatter.testimonials.map(t => getTestimonal(t.testimonial) )
+          nodeIds = nodeIds.map(n => n.id )
+          createNodeField({
+            node: node,
+            name: `testimonials`,
+            value: nodeIds,
+          })
+        }
+      }
+
+      // Setup linkage from posts -> blog
+      if (node.fields.contentType === 'posts') {
+        if (node.frontmatter.blog_categories) {
+          let nodeIds = node.frontmatter.blog_categories.map(t => getBlog(t.category) )
+          nodeIds = nodeIds.map(n => n.id )
+          createNodeField({
+            node: node,
+            name: `blogs`,
+            value: nodeIds,
+          })
+        }
+      }
+
+      // // Setup linkage from solution -> solutionCategory
+      if (node.fields.contentType === 'solutions') {
+        if (node.frontmatter.solution_categories) {
+          let nodeIds = node.frontmatter.solution_categories.map(t => getSolutionCategory(t.category) )
+          nodeIds = nodeIds.map(n => n.id )
+          createNodeField({
+            node: node,
+            name: `solutionCategories`,
+            value: nodeIds,
+          })
+        }
+      }
+
+      // Setup linkage from blog -> posts
+      if (node.fields.contentType === 'blogs') {
+        let nodeIds = postNodes(node.frontmatter.title).map(n => n.id);
+        createNodeField({
+          node: node,
+          name: `posts`,
+          value: nodeIds,
+        })
+      }
+
+      // Setup linkage from solutionCategories -> solution
+      if (node.fields.contentType === 'solutionCategories') {
+        let nodeIds = solutionNodes(node.frontmatter.title).map(n => n.id);
+        createNodeField({
+          node: node,
+          name: `solutions`,
+          value: nodeIds,
+        })
+      }
+
+    })
+
+  return
+
+}
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
