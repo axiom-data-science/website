@@ -29,15 +29,18 @@ export const SolutionCategoryPageTemplate = ({
 
     <h1>Solutions</h1>
     <div>
-      { solutions && solutions.map(sc => {
-        return (
-          <div>
-            <a href={sc.fields.slug}>{sc.frontmatter.title}</a>
-            <span>{sc.frontmatter.subtitle}</span>
-            <Img fixed={sc.frontmatter.featured.image.childImageSharp.fixed} />
-          </div>
-        )
-      })}
+      {solutions &&
+        solutions.map(sc => {
+          return (
+            <div>
+              <a href={sc.fields.slug}>{sc.frontmatter.title}</a>
+              <span>{sc.frontmatter.subtitle}</span>
+              <Img
+                fixed={sc.frontmatter.featured.image.childImageSharp.fixed}
+              />
+            </div>
+          )
+        })}
     </div>
 
     <h1>Content</h1>
@@ -45,18 +48,18 @@ export const SolutionCategoryPageTemplate = ({
 
     <h1>Testimonials</h1>
     <div>
-      { testimonials && testimonials.map(t => {
-        return (
-          <div>
-            <span>{t.frontmatter.name}</span>
-            <span>{t.frontmatter.affiliation}</span>
-            <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
-            <span>{t.frontmatter.content}</span>
-          </div>
-        )
-      })}
+      {testimonials &&
+        testimonials.map(t => {
+          return (
+            <div>
+              <span>{t.frontmatter.name}</span>
+              <span>{t.frontmatter.affiliation}</span>
+              <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
+              <span>{t.frontmatter.content}</span>
+            </div>
+          )
+        })}
     </div>
-
   </main>
 )
 
@@ -82,23 +85,23 @@ export const pageQuery = graphql`
       html
       fields {
         solutions {
-            fields {
-                slug
-            }
-            frontmatter {
-                title
-                subtitle
-                featured {
-                  caption
-                  image {
-                    childImageSharp {
-                      fixed(width: 500) {
-                        ...GatsbyImageSharpFixed_noBase64
-                      }
-                    }
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            subtitle
+            featured {
+              caption
+              image {
+                childImageSharp {
+                  fixed(width: 500) {
+                    ...GatsbyImageSharpFixed_noBase64
                   }
                 }
+              }
             }
+          }
         }
         testimonials {
           frontmatter {

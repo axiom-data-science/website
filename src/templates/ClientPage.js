@@ -12,7 +12,6 @@ export const ClientPageTemplate = ({
   clients,
 }) => (
   <main className="Contact">
-
     <h1>Title</h1>
     <p>{title}</p>
 

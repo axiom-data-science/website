@@ -28,14 +28,15 @@ export const DefaultPageTemplate = ({
 
     <h1>Images</h1>
     <div>
-      { images && images.map(i => {
-        return (
-          <div>
-            <Img fixed={i.image.childImageSharp.fixed} />
-            <span>{i.caption}</span>
-          </div>
-        )
-      })}
+      {images &&
+        images.map(i => {
+          return (
+            <div>
+              <Img fixed={i.image.childImageSharp.fixed} />
+              <span>{i.caption}</span>
+            </div>
+          )
+        })}
     </div>
 
     <h1>Content</h1>
@@ -43,18 +44,18 @@ export const DefaultPageTemplate = ({
 
     <h1>Testimonials</h1>
     <div>
-      { testimonials && testimonials.map(t => {
-        return (
-          <div>
-            <span>{t.frontmatter.name}</span>
-            <span>{t.frontmatter.affiliation}</span>
-            <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
-            <span>{t.frontmatter.content}</span>
-          </div>
-        )
-      })}
+      {testimonials &&
+        testimonials.map(t => {
+          return (
+            <div>
+              <span>{t.frontmatter.name}</span>
+              <span>{t.frontmatter.affiliation}</span>
+              <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
+              <span>{t.frontmatter.content}</span>
+            </div>
+          )
+        })}
     </div>
-
   </main>
 )
 

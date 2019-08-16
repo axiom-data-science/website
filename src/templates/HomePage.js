@@ -12,7 +12,7 @@ export const HomePageTemplate = ({
   images,
   body,
   solutionCategories,
-  testimonials
+  testimonials,
 }) => (
   <main>
     <h1>Title</h1>
@@ -51,18 +51,18 @@ export const HomePageTemplate = ({
 
     <h1>Testimonials</h1>
     <div>
-      { testimonials && testimonials.map(t => {
-        return (
-          <div>
-            <span>{t.frontmatter.name}</span>
-            <span>{t.frontmatter.affiliation}</span>
-            <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
-            <span>{t.frontmatter.content}</span>
-          </div>
-        )
-      })}
+      {testimonials &&
+        testimonials.map(t => {
+          return (
+            <div>
+              <span>{t.frontmatter.name}</span>
+              <span>{t.frontmatter.affiliation}</span>
+              <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
+              <span>{t.frontmatter.content}</span>
+            </div>
+          )
+        })}
     </div>
-
   </main>
 )
 
@@ -74,7 +74,9 @@ const HomePage = ({ data: { page, solutionCategories } }) => (
     <HomePageTemplate
       {...page.fields}
       {...page.frontmatter}
-      solutionCategories={solutionCategories.nodes.map(s => extend(s.fields, s.frontmatter))}
+      solutionCategories={solutionCategories.nodes.map(s =>
+        extend(s.fields, s.frontmatter)
+      )}
       body={page.html}
     />
   </Layout>

@@ -30,25 +30,27 @@ export const SolutionPageTemplate = ({
 
     <h1>Images</h1>
     <div>
-      { images && images.map(i => {
-        return (
-          <div>
-            <Img fixed={i.image.childImageSharp.fixed} />
-            <span>{i.caption}</span>
-          </div>
-        )
-      })}
+      {images &&
+        images.map(i => {
+          return (
+            <div>
+              <Img fixed={i.image.childImageSharp.fixed} />
+              <span>{i.caption}</span>
+            </div>
+          )
+        })}
     </div>
 
     <h1>SolutionCategories</h1>
     <div>
-      { solutionCategories && solutionCategories.map(sc => {
-        return (
-          <div>
-            <a href={sc.fields.slug}>{sc.frontmatter.title}</a>
-          </div>
-        )
-      })}
+      {solutionCategories &&
+        solutionCategories.map(sc => {
+          return (
+            <div>
+              <a href={sc.fields.slug}>{sc.frontmatter.title}</a>
+            </div>
+          )
+        })}
     </div>
 
     <h1>Content</h1>
@@ -56,18 +58,18 @@ export const SolutionPageTemplate = ({
 
     <h1>Testimonials</h1>
     <div>
-      { testimonials && testimonials.map(t => {
-        return (
-          <div>
-            <span>{t.frontmatter.name}</span>
-            <span>{t.frontmatter.affiliation}</span>
-            <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
-            <span>{t.frontmatter.content}</span>
-          </div>
-        )
-      })}
+      {testimonials &&
+        testimonials.map(t => {
+          return (
+            <div>
+              <span>{t.frontmatter.name}</span>
+              <span>{t.frontmatter.affiliation}</span>
+              <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
+              <span>{t.frontmatter.content}</span>
+            </div>
+          )
+        })}
     </div>
-
   </main>
 )
 
@@ -93,13 +95,13 @@ export const pageQuery = graphql`
       html
       fields {
         solutionCategories {
-            fields {
-                slug
-            }
-            frontmatter {
-                title
-                subtitle
-            }
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            subtitle
+          }
         }
         testimonials {
           frontmatter {

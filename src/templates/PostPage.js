@@ -17,7 +17,7 @@ export const PostPageTemplate = ({
   <main>
     <h1>Title</h1>
     <p>{title}</p>
-    
+
     <h1>Date</h1>
     <p>{date}</p>
 
@@ -32,14 +32,15 @@ export const PostPageTemplate = ({
 
     <h1>Images</h1>
     <div>
-      { images && images.map(i => {
-        return (
-          <div>
-            <Img fixed={i.image.childImageSharp.fixed} />
-            <span>{i.caption}</span>
-          </div>
-        )
-      })}
+      {images &&
+        images.map(i => {
+          return (
+            <div>
+              <Img fixed={i.image.childImageSharp.fixed} />
+              <span>{i.caption}</span>
+            </div>
+          )
+        })}
     </div>
 
     <h1>Content</h1>
@@ -47,18 +48,18 @@ export const PostPageTemplate = ({
 
     <h1>Testimonials</h1>
     <div>
-      { testimonials && testimonials.map(t => {
-        return (
-          <div>
-            <span>{t.frontmatter.name}</span>
-            <span>{t.frontmatter.affiliation}</span>
-            <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
-            <span>{t.frontmatter.content}</span>
-          </div>
-        )
-      })}
+      {testimonials &&
+        testimonials.map(t => {
+          return (
+            <div>
+              <span>{t.frontmatter.name}</span>
+              <span>{t.frontmatter.affiliation}</span>
+              <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
+              <span>{t.frontmatter.content}</span>
+            </div>
+          )
+        })}
     </div>
-
   </main>
 )
 
@@ -67,11 +68,7 @@ const PostPage = ({ data: { page } }) => (
     meta={page.frontmatter.meta || false}
     title={page.frontmatter.title || false}
   >
-    <PostPageTemplate
-      {...page.frontmatter}
-      {...page.fields}
-      body={page.html}
-    />
+    <PostPageTemplate {...page.frontmatter} {...page.fields} body={page.html} />
   </Layout>
 )
 

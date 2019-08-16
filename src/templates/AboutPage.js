@@ -15,7 +15,6 @@ export const AboutPageTemplate = ({
   staff,
 }) => (
   <main>
-
     <h1>Title</h1>
     <p>{title}</p>
 
@@ -70,7 +69,6 @@ export const AboutPageTemplate = ({
 
     <h1>Content</h1>
     <Content source={body} />
-
   </main>
 )
 
