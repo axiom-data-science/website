@@ -301,17 +301,17 @@ collections:
           - *metafields
 
       # Solutions page, listing all of the Solutions Categories
-      - file: content/pages/solutions.md
-        label: Solution Categories
-        name: solution-category-page
-        fields:
-          - { label: Template, name: template, widget: hidden, default: SolutionCategoryPage }
-          - { label: "URL Slug", name: slug, widget: hidden, default: 'solutions' }
-          - { label: Title, name: title, widget: string }
-          - { label: Subtitle, name: subtitle, widget: markdown }
-          - { label: Body, name: body, widget: markdown, required: false }
-          - *featuredImage
-          - *metafields
+      # - file: content/pages/solutions.md
+      #   label: Solution Categories
+      #   name: solution-category-page
+      #   fields:
+      #     - { label: Template, name: template, widget: hidden, default: SolutionCategoryPage }
+      #     - { label: "URL Slug", name: slug, widget: hidden, default: 'solutions' }
+      #     - { label: Title, name: title, widget: string }
+      #     - { label: Subtitle, name: subtitle, widget: markdown }
+      #     - { label: Body, name: body, widget: markdown, required: false }
+      #     - *featuredImage
+      #     - *metafields
 
       # Clients page, which loads the 'clients' objects
       - file: content/pages/clients.md
