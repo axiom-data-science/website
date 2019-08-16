@@ -12,6 +12,7 @@ export const AboutPageTemplate = ({
   featured,
   body,
   locations,
+  staff,
 }) => (
   <main>
 
@@ -27,7 +28,7 @@ export const AboutPageTemplate = ({
     </div>
 
     <h1>Locations</h1>
-    {locations.nodes.map(loc => {
+    {locations.map(loc => {
       let l = loc.frontmatter
       return (
         <section>
@@ -51,20 +52,37 @@ export const AboutPageTemplate = ({
       )
     })}
 
+    <h1>Staff</h1>
+    {staff.map(s => {
+      let l = s.frontmatter
+      return (
+        <section>
+          <div>
+            <Img fixed={l.headshot.childImageSharp.fixed} />
+            {l.name}
+            {l.position}
+            {l.email}
+            <Content source={s.html} />
+          </div>
+        </section>
+      )
+    })}
+
     <h1>Content</h1>
     <Content source={body} />
 
   </main>
 )
 
-const AboutPage = ({ data: { page, locations } }) => (
+const AboutPage = ({ data: { page, locations, staff } }) => (
   <Layout
     meta={page.frontmatter.meta || false}
     title={page.frontmatter.title || false}
   >
     <AboutPageTemplate
       {...page.frontmatter}
-      locations={locations}
+      locations={locations.nodes}
+      staff={staff.nodes}
       body={page.html}
     />
   </Layout>
@@ -107,6 +125,26 @@ export const pageQuery = graphql`
           photo {
             childImageSharp {
               fixed(width: 500) {
+                ...GatsbyImageSharpFixed_noBase64
+              }
+            }
+          }
+        }
+      }
+    }
+
+    staff: allMarkdownRemark(
+      filter: { fields: { contentType: { eq: "staff" } } }
+    ) {
+      nodes {
+        html
+        frontmatter {
+          name
+          email
+          position
+          headshot {
+            childImageSharp {
+              fixed(width: 200) {
                 ...GatsbyImageSharpFixed_noBase64
               }
             }
