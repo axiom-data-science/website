@@ -20,79 +20,53 @@ module.exports = {
   },
 
   plugins: [
-    `gatsby-transformer-yaml`,
-
+    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: 'assets',
         path: `${__dirname}/static/assets`,
-        name: 'assets'
       }
     },
-
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `content`,
         path: `${__dirname}/content`,
-        name: `pages`
       }
     },
-
-    // Images
+    `gatsby-transformer-yaml`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          `gatsby-remark-relative-images`,
+          {
+            resolve: `gatsby-remark-relative-images`,
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1500
             },
           },
-          // {
-          //   resolve: `gatsby-remark-responsive-iframe`,
-          //   options: {
-          //     wrapperStyle: `margin-bottom: 1.0725rem`,
-          //   },
-          // },
           `gatsby-remark-prismjs`,
-          // {
-          //   resolve:`gatsby-remark-copy-linked-files`,
-          //   options:{
-          //     destinationDir:`${__dirname}/static`
-          //   }
-          // },
           `gatsby-remark-smartypants`,
         ],
       },
     },
-
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
-
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
-        // Setting a color is optional.
         color: 'white',
-        // Disable the loading spinner.
-        showSpinner: false
+        showSpinner: true
       }
     },
-
+    `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
-
-    {
-      resolve: `gatsby-plugin-netlify-cms`,
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`
-      }
-    },
-
-    `gatsby-plugin-netlify`
-
+    `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-netlify`,
   ]
 }
