@@ -21,11 +21,13 @@ export const SolutionCategoryPageTemplate = ({
     <h1>Subtitle</h1>
     <p>{subtitle}</p>
 
-    <h1>Feature</h1>
-    <div>
-      <Img fluid={featured.image.childImageSharp.fluid} />
-      <span>{featured.caption}</span>
-    </div>
+    <h1>Featured</h1>
+    {featured &&
+      <div>
+        <Img fluid={featured.image.childImageSharp.fluid} />
+        <span>{featured.caption}</span>
+      </div>
+    }
 
     <h1>Solutions</h1>
     <div>

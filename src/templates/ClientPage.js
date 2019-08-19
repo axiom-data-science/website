@@ -18,10 +18,13 @@ export const ClientPageTemplate = ({
     <h1>Subtitle</h1>
     <p>{subtitle}</p>
 
-    <h1>Feature</h1>
-    <div>
-      <Img fluid={featured.image.childImageSharp.fluid} />
-    </div>
+    <h1>Featured</h1>
+    {featured &&
+      <div>
+        <Img fluid={featured.image.childImageSharp.fluid} />
+        <span>{featured.caption}</span>
+      </div>
+    }
 
     {clients.nodes.map(client => {
       let c = client.frontmatter
