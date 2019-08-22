@@ -1,5 +1,7 @@
 const _ = require('lodash')
 const path = require('path')
+const util = require('util');
+const setTimeoutPromise = util.promisify(setTimeout);
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
@@ -66,120 +68,123 @@ exports.sourceNodes = (
   { actions, getNodesByType, getNode },
   options
 ) => {
-  console.log("START sourceNodes")
 
-  const { createNodeField } = actions
+  return setTimeoutPromise(2000).then( () => {
+    console.log("START sourceNodes")
 
-  const markdownNodes = getNodesByType(`MarkdownRemark`)
-  if (markdownNodes.length == 0) {
-    throw new Error('No MarkdownRemark nodes found!')
-  }
+    const { createNodeField } = actions
 
-  //
-  // Create relations
-  ///
-  const getTestimonal = uid => getNodesByType(`MarkdownRemark`).find(
-    node2 =>
-      node2.frontmatter.uid === uid
-  )
+    const markdownNodes = getNodesByType(`MarkdownRemark`)
+    if (markdownNodes.length == 0) {
+      return console.log('NOPE: No MarkdownRemark nodes found! Why, oh WHY?')
+    }
 
-  const getBlog = title => getNodesByType(`MarkdownRemark`).find(
-    node2 =>
-      node2.frontmatter.title === title
-  )
+    //
+    // Create relations
+    ///
+    const getTestimonal = uid => getNodesByType(`MarkdownRemark`).find(
+      node2 =>
+        node2.frontmatter.uid === uid
+    )
 
-  const getSolutionCategory = title => getNodesByType(`MarkdownRemark`).find(
-    node2 =>
-      node2.frontmatter.title === title
-  )
+    const getBlog = title => getNodesByType(`MarkdownRemark`).find(
+      node2 =>
+        node2.frontmatter.title === title
+    )
 
-  const postNodes = title => getNodesByType(`MarkdownRemark`).filter(
-    node2 =>
-      path.parse(getNode(node2.parent).relativePath).dir == 'posts' &&
-      node2.frontmatter.blog_categories.map(e => e.category).indexOf(title) > -1
-  )
+    const getSolutionCategory = title => getNodesByType(`MarkdownRemark`).find(
+      node2 =>
+        node2.frontmatter.title === title
+    )
 
-  const solutionNodes = title => getNodesByType(`MarkdownRemark`).filter(
-    node2 =>
-      path.parse(getNode(node2.parent).relativePath).dir == 'solutions' &&
-      node2.frontmatter.solution_categories.map(e => e.category).indexOf(title) > -1
-  )
+    const postNodes = title => getNodesByType(`MarkdownRemark`).filter(
+      node2 =>
+        path.parse(getNode(node2.parent).relativePath).dir == 'posts' &&
+        node2.frontmatter.blog_categories.map(e => e.category).indexOf(title) > -1
+    )
 
-  // iterate thorugh all markdown nodes to link books to author
-  // and build author index
-  // Adopted from https://github.com/gatsbyjs/gatsby/issues/3129#issuecomment-365308599
-  markdownNodes.map(node => {
+    const solutionNodes = title => getNodesByType(`MarkdownRemark`).filter(
+      node2 =>
+        path.parse(getNode(node2.parent).relativePath).dir == 'solutions' &&
+        node2.frontmatter.solution_categories.map(e => e.category).indexOf(title) > -1
+    )
 
-    const fileNode = getNode(node.parent)
-    const parsedFilePath = path.parse(fileNode.relativePath)
+    // iterate thorugh all markdown nodes to link books to author
+    // and build author index
+    // Adopted from https://github.com/gatsbyjs/gatsby/issues/3129#issuecomment-365308599
+    markdownNodes.map(node => {
 
-    // If testimonials is defined in the front matter match them to
-    // uids of testimonmials and return the ID for gatsby to do the
-    // mapping itself. There is no reverse mapping for testimonials.
-    if (['solutions', 'solutionCategories', 'info', 'pages', 'posts'].indexOf(node.fields.contentType) > -1) {
-      if (node.frontmatter.testimonials) {
-        let nodeIds = node.frontmatter.testimonials.map(t => getTestimonal(t.testimonial) )
-        nodeIds = nodeIds.map(n => n.id )
+      const fileNode = getNode(node.parent)
+      const parsedFilePath = path.parse(fileNode.relativePath)
+
+      // If testimonials is defined in the front matter match them to
+      // uids of testimonmials and return the ID for gatsby to do the
+      // mapping itself. There is no reverse mapping for testimonials.
+      if (['solutions', 'solutionCategories', 'info', 'pages', 'posts'].indexOf(node.fields.contentType) > -1) {
+        if (node.frontmatter.testimonials) {
+          let nodeIds = node.frontmatter.testimonials.map(t => getTestimonal(t.testimonial) )
+          nodeIds = nodeIds.map(n => n.id )
+          createNodeField({
+            node: node,
+            name: `testimonials`,
+            value: nodeIds,
+          })
+          console.log(`Built ${node.fields.contentType} -> testimonials link`)
+        }
+      }
+
+      // Setup linkage from posts -> blog
+      if (node.fields.contentType === 'posts') {
+        if (node.frontmatter.blog_categories) {
+          let nodeIds = node.frontmatter.blog_categories.map(t => getBlog(t.category) )
+          nodeIds = nodeIds.map(n => n.id )
+          createNodeField({
+            node: node,
+            name: `blogs`,
+            value: nodeIds,
+          })
+          console.log(`Built ${node.fields.contentType} -> blog link`)
+        }
+      }
+
+      // // Setup linkage from solution -> solutionCategory
+      if (node.fields.contentType === 'solutions') {
+        if (node.frontmatter.solution_categories) {
+          let nodeIds = node.frontmatter.solution_categories.map(t => getSolutionCategory(t.category) )
+          nodeIds = nodeIds.map(n => n.id )
+          createNodeField({
+            node: node,
+            name: `solutionCategories`,
+            value: nodeIds,
+          })
+         console.log(`Built ${node.fields.contentType} -> solutionCategory link`)
+        }
+      }
+
+      // Setup linkage from blog -> posts
+      if (node.fields.contentType === 'blogs') {
+        let nodeIds = postNodes(node.frontmatter.title).map(n => n.id);
         createNodeField({
           node: node,
-          name: `testimonials`,
+          name: `posts`,
           value: nodeIds,
         })
-        console.log(`Built ${node.fields.contentType} -> testimonials link`)
+        console.log(`Built ${node.fields.contentType} -> posts link`)
       }
-    }
 
-    // Setup linkage from posts -> blog
-    if (node.fields.contentType === 'posts') {
-      if (node.frontmatter.blog_categories) {
-        let nodeIds = node.frontmatter.blog_categories.map(t => getBlog(t.category) )
-        nodeIds = nodeIds.map(n => n.id )
+      // Setup linkage from solutionCategories -> solution
+      if (node.fields.contentType === 'solutionCategories') {
+        let nodeIds = solutionNodes(node.frontmatter.title).map(n => n.id);
         createNodeField({
           node: node,
-          name: `blogs`,
+          name: `solutions`,
           value: nodeIds,
         })
-        console.log(`Built ${node.fields.contentType} -> blog link`)
+        console.log(`Built ${node.fields.contentType} -> solution link`)
       }
-    }
-
-    // // Setup linkage from solution -> solutionCategory
-    if (node.fields.contentType === 'solutions') {
-      if (node.frontmatter.solution_categories) {
-        let nodeIds = node.frontmatter.solution_categories.map(t => getSolutionCategory(t.category) )
-        nodeIds = nodeIds.map(n => n.id )
-        createNodeField({
-          node: node,
-          name: `solutionCategories`,
-          value: nodeIds,
-        })
-       console.log(`Built ${node.fields.contentType} -> solutionCategory link`)
-      }
-    }
-
-    // Setup linkage from blog -> posts
-    if (node.fields.contentType === 'blogs') {
-      let nodeIds = postNodes(node.frontmatter.title).map(n => n.id);
-      createNodeField({
-        node: node,
-        name: `posts`,
-        value: nodeIds,
-      })
-      console.log(`Built ${node.fields.contentType} -> posts link`)
-    }
-
-    // Setup linkage from solutionCategories -> solution
-    if (node.fields.contentType === 'solutionCategories') {
-      let nodeIds = solutionNodes(node.frontmatter.title).map(n => n.id);
-      createNodeField({
-        node: node,
-        name: `solutions`,
-        value: nodeIds,
-      })
-      console.log(`Built ${node.fields.contentType} -> solution link`)
-    }
-  })
-  console.log("END sourceNodes")
+    })
+    return console.log("END sourceNodes")
+  });
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
