@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import Layout from "../components/Layout"
 import Content from "../components/Content"
 
-export const DefaultPageTemplate = ({
+export const InfoPageTemplate = ({
   title,
   subtitle,
   featured,
@@ -59,12 +59,12 @@ export const DefaultPageTemplate = ({
   </main>
 )
 
-const DefaultPage = ({ data: { page } }) => (
+const InfoPage = ({ data: { page } }) => (
   <Layout
     meta={page.frontmatter.meta || false}
     title={page.frontmatter.title || false}
   >
-    <DefaultPageTemplate
+    <InfoPageTemplate
       {...page.frontmatter}
       {...page.fields}
       body={page.html}
@@ -72,10 +72,10 @@ const DefaultPage = ({ data: { page } }) => (
   </Layout>
 )
 
-export default DefaultPage
+export default InfoPage
 
 export const pageQuery = graphql`
-  query DefaultPage($id: String!) {
+  query InfoPage($id: String!) {
     page: markdownRemark(id: { eq: $id }) {
       ...Meta
       html

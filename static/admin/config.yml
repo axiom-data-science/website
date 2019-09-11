@@ -62,6 +62,11 @@ imageList: &imageList
     - { name: image, label: Image, widget: image, required: true }
     - { name: caption, label: Caption, widget: text, required: false }
 
+basicPageFields: &pageFields
+  - { label: Title, name: title, widget: string }
+  - { label: Subtitle, name: subtitle, widget: markdown }
+  - { label: Body, name: body, widget: markdown, required: false }
+
 collections:
 
   - name: posts
@@ -74,10 +79,8 @@ collections:
     identifier_field: title
     fields:
       - { label: Template, name: template, widget: hidden, default: PostPage }
-      - { label: Title, name: title, widget: string }
       - { label: "Relative URL Slug", name: relslug, widget: string }
       - { label: Date, name: date, widget: date }
-      - { label: Body, name: body, widget: markdown }
       - label: 'Categories'
         name: 'blog_categories'
         widget: 'list'
@@ -89,6 +92,7 @@ collections:
             collection: 'blogs'
             searchFields: ['title']
             valueField: 'title'
+      - <<: *pageFields
       - *featuredImage
       - *testimonials
       - *metafields
@@ -102,9 +106,8 @@ collections:
     identifier_field: title
     fields:
       - { label: Template, name: template, widget: hidden, default: PostCategoryPage }
-      - { label: Title, name: title, widget: string }
       - { label: "Relative URL Slug", name: relslug, widget: string }
-      - { label: Subtitle, name: subtitle, widget: string, required: false }
+      - <<: *pageFields
       - *featuredImage
 
   - name: testimonials
@@ -130,10 +133,7 @@ collections:
     identifier_field: title
     fields:
       - { label: Template, name: template, widget: hidden, default: SolutionPage }
-      - { label: Title, name: title, widget: string }
-      - { label: Subtitle, name: subtitle, widget: string, required: false }
       - { label: "Relative URL Slug", name: relslug, widget: string }
-      - { label: Body, name: body, widget: markdown }
       - label: 'Categories'
         name: 'solution_categories'
         widget: 'list'
@@ -145,6 +145,7 @@ collections:
             collection: 'solutionCategories'
             searchFields: ['title']
             valueField: 'title'
+      - <<: *pageFields
       - *featuredImage
       - *imageList
       - *testimonials
@@ -159,10 +160,8 @@ collections:
     identifier_field: title
     fields:
       - { label: Template, name: template, widget: hidden, default: SolutionCategoryPage }
-      - { label: Title, name: title, widget: string }
-      - { label: Subtitle, name: subtitle, widget: string, required: false }
       - { label: "URL Slug", name: slug, widget: string }
-      - { label: Body, name: body, widget: markdown, required: false }
+      - <<: *pageFields
       - *featuredImage
       - *testimonials
       - *metafields
@@ -233,9 +232,7 @@ collections:
     fields:
       - { label: Template, name: template, widget: hidden, default: DefaultPage }
       - { label: "Relative URL Slug", name: relslug, widget: string }
-      - { label: Title, name: title, widget: string }
-      - { label: Subtitle, name: subtitle, widget: string, required: false }
-      - { label: Body, name: body, widget: markdown }
+      - <<: *pageFields
       - *featuredImage
       - *imageList
       - *testimonials
@@ -281,9 +278,7 @@ collections:
         fields:
           - { label: Template, name: template, widget: hidden, default: AboutPage }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'about' }
-          - { label: Title, name: title, widget: string }
-          - { label: Subtitle, name: subtitle, widget: markdown }
-          - { label: Body, name: body, widget: markdown, required: false }
+          - <<: *pageFields
           - *featuredImage
           - *metafields
 
@@ -294,9 +289,7 @@ collections:
         fields:
           - { label: Template, name: template, widget: hidden, default: PostCategoryPage }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'blog' }
-          - { label: Title, name: title, widget: string }
-          - { label: Subtitle, name: subtitle, widget: markdown }
-          - { label: Body, name: body, widget: markdown, required: false }
+          - <<: *pageFields
           - *featuredImage
           - *metafields
 
@@ -307,9 +300,7 @@ collections:
       #   fields:
       #     - { label: Template, name: template, widget: hidden, default: SolutionCategoryPage }
       #     - { label: "URL Slug", name: slug, widget: hidden, default: 'solutions' }
-      #     - { label: Title, name: title, widget: string }
-      #     - { label: Subtitle, name: subtitle, widget: markdown }
-      #     - { label: Body, name: body, widget: markdown, required: false }
+      #     - <<: *pageFields
       #     - *featuredImage
       #     - *metafields
 
@@ -320,9 +311,7 @@ collections:
         fields:
           - { label: Template, name: template, widget: hidden, default: ClientsPage }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'clients' }
-          - { label: Title, name: title, widget: string }
-          - { label: Subtitle, name: subtitle, widget: markdown }
-          - { label: Body, name: body, widget: markdown, required: false }
+          - <<: *pageFields
           - *featuredImage
           - *metafields
 
@@ -333,9 +322,7 @@ collections:
         fields:
           - { label: Template, name: template, widget: hidden, default: HomePage }
           - { label: "URL Slug", name: slug, widget: hidden, default: '' }
-          - { label: Title, name: title, widget: string }
-          - { label: Subtitle, name: subtitle, widget: markdown }
-          - { label: Body, name: body, widget: markdown, required: false }
+          - <<: *pageFields
           - *imageList
           - *testimonials
           - *metafields

@@ -1,5 +1,5 @@
 ---
-template: DefaultPage
+template: InfoPage
 relslug: page-template
 title: I'm the page template
 featured:
@@ -42,8 +42,7 @@ meta:
 2. B
 3. C
 
-
-```
+```console
 I'm code!
 And more code!
 ```
