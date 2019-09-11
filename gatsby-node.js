@@ -227,6 +227,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: 'contentType',
       value: parsedFilePath.dir
     })
+
+    console.log(`Identified and built the URL: ${slug}`)
   }
 
 }
