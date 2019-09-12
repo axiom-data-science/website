@@ -107,6 +107,10 @@ collections:
     fields:
       - { label: Template, name: template, widget: hidden, default: PostCategoryPage }
       - { label: "Relative URL Slug", name: relslug, widget: string }
+      - { label: "Display Where?", name: "display", widget: "select", multiple: true,
+          default: [ "Menu", "Blogs" ],
+          options: [ "Menu", "Featured", "Blogs" ]
+        }
       - <<: *pageFields
       - *featuredImage
 
@@ -161,6 +165,10 @@ collections:
     fields:
       - { label: Template, name: template, widget: hidden, default: SolutionCategoryPage }
       - { label: "URL Slug", name: slug, widget: string }
+      - { label: "Display Where?", name: "display", widget: "select", multiple: true,
+          default: [ "Menu" ],
+          options: [ "Menu", "Featured" ]
+        }      
       - <<: *pageFields
       - *featuredImage
       - *testimonials
@@ -199,7 +207,8 @@ collections:
       - { name: "url",  label: "URL",  widget: "string" }
       - { name: "logo", label: "Logo", widget: "image" }
       - { name: "body", label: "Description", widget: "markdown", required: false }
-      - { name: "display", label: "Display Where?", widget: "select", multiple: true, default: [ "Clients" ],
+      - { name: "display", label: "Display Where?", widget: "select", multiple: true,
+          default: [ "Clients" ],
           options: [ "Clients", "Featured" ]
         }
 
@@ -230,7 +239,7 @@ collections:
     folder: content/info
     identifier_field: title
     fields:
-      - { label: Template, name: template, widget: hidden, default: DefaultPage }
+      - { label: Template, name: template, widget: hidden, default: InfoPage }
       - { label: "Relative URL Slug", name: relslug, widget: string }
       - <<: *pageFields
       - *featuredImage
@@ -278,6 +287,10 @@ collections:
         fields:
           - { label: Template, name: template, widget: hidden, default: AboutPage }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'about' }
+          - { label: "Display Where?", name: "display", widget: "select", multiple: true,
+            default: [ "Menu" ],
+            options: [ "Menu" ]
+          }
           - <<: *pageFields
           - *featuredImage
           - *metafields
@@ -289,6 +302,9 @@ collections:
         fields:
           - { label: Template, name: template, widget: hidden, default: PostCategoryPage }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'blog' }
+          - { label: "Display Where?", name: "display", widget: "select", multiple: true,
+            options: [ "Menu" ]
+          }
           - <<: *pageFields
           - *featuredImage
           - *metafields
@@ -311,6 +327,10 @@ collections:
         fields:
           - { label: Template, name: template, widget: hidden, default: ClientsPage }
           - { label: "URL Slug", name: slug, widget: hidden, default: 'clients' }
+          - { label: "Display Where?", name: "display", widget: "select", multiple: true,
+            default: [ "Menu" ],
+            options: [ "Menu" ]
+          }
           - <<: *pageFields
           - *featuredImage
           - *metafields
@@ -322,6 +342,10 @@ collections:
         fields:
           - { label: Template, name: template, widget: hidden, default: HomePage }
           - { label: "URL Slug", name: slug, widget: hidden, default: '' }
+          - { label: "Display Where?", name: "display", widget: "select", multiple: true,
+            default: [ "Menu" ],
+            options: [ "Menu" ]
+          }
           - <<: *pageFields
           - *imageList
           - *testimonials

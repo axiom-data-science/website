@@ -2,6 +2,8 @@
 title: About
 slug: about
 template: AboutPage
+display:
+  - Menu
 featured:
   image: /assets/group1.jpg
 subtitle: >-

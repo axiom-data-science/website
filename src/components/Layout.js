@@ -1,5 +1,7 @@
 import React, { Fragment } from "react"
 import Helmet from "react-helmet"
+import Header from './Header';
+import Footer from './Footer';
 import { StaticQuery, graphql } from "gatsby"
 
 import Meta from "./Meta"
@@ -19,34 +21,11 @@ export default ({ children, meta, title }) => {
               image
             }
           }
-          allPosts: allMarkdownRemark(
-            filter: { fields: { contentType: { eq: "blogs" } } }
-            sort: { order: DESC, fields: [frontmatter___date] }
-          ) {
-            edges {
-              node {
-                fields {
-                  slug
-                }
-                frontmatter {
-                  title
-                }
-              }
-            }
-          }
         }
       `}
       render={data => {
         const { siteTitle, socialMediaCard, googleTrackingId } =
           data.settingsYaml || {}
-
-        // const subNav = {
-        //     posts: data.allPosts.hasOwnProperty('edges')
-        //       ? data.allPosts.edges.map(post => {
-        //           return { ...post.node.fields, ...post.node.frontmatter }
-        //         })
-        //       : false
-        //   }
 
         return (
           <Fragment>
@@ -55,8 +34,6 @@ export default ({ children, meta, title }) => {
               titleTemplate={`%s | ${siteTitle}`}
             >
               {title}
-              <link href="https://ucarecdn.com" rel="preconnect" crossorigin />
-              <link rel="dns-prefetch" href="https://ucarecdn.com" />
               {/* Add font link tags here */}
             </Helmet>
 
@@ -70,8 +47,9 @@ export default ({ children, meta, title }) => {
               {...meta}
               {...data.settingsYaml}
             />
-
+            <Header></Header>
             <Fragment>{children}</Fragment>
+            <Footer></Footer>
           </Fragment>
         )
       }}

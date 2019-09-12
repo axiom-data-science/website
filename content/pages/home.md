@@ -1,6 +1,8 @@
 ---
 title: Home
 template: HomePage
+display:
+  - Menu
 subtitle: >-
   Axiom is cool and warm.
 images:

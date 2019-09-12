@@ -5,6 +5,9 @@ subtitle: >-
   Collection, analysis, access, reuse and archival - we work with research
   programs throughout the data management lifecycle
 slug: research-program-support
+display:
+  - Menu
+  - Featured
 featured:
   image: /assets/NPRB_SEARCH.thumb.jpg
 testimonials:
