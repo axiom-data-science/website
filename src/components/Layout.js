@@ -5,8 +5,24 @@ import Footer from "./Footer"
 import { StaticQuery, graphql } from "gatsby"
 import styled, { ThemeProvider } from "styled-components"
 
+import "normalize.css"
 import { Theme, GlobalStyle } from "./Theme"
 import Meta from "./Meta"
+
+const StyledHeader = styled.div`
+  border-bottom: 1px solid black;
+`
+
+const StyledContent = styled.div`
+  max-width: ${props => props.theme.maxWidth};
+  margin: 0 auto;
+`
+
+const StyledFooter = styled.div`
+  background: grey;
+  max-width: ${props => props.theme.maxWidth};
+  margin: 0 auto;
+`
 
 export default ({ children, meta, title }) => {
   return (
@@ -48,9 +64,13 @@ export default ({ children, meta, title }) => {
                 {...data.settingsYaml}
               />
               <GlobalStyle />
-              <Header />
-              <Fragment>{children}</Fragment>
-              <Footer />
+              <StyledHeader>
+                <Header />
+              </StyledHeader>
+              <StyledContent>{children}</StyledContent>
+              <StyledFooter>
+                <Footer />
+              </StyledFooter>
             </Fragment>
           </ThemeProvider>
         )
