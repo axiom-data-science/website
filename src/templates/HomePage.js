@@ -5,6 +5,7 @@ import { extend } from "lodash"
 
 import Layout from "../components/Layout"
 import Content from "../components/Content"
+import PageMeta from "../components/PageMeta"
 
 export const HomePageTemplate = ({
   title,
@@ -15,12 +16,7 @@ export const HomePageTemplate = ({
   testimonials,
 }) => (
   <main>
-    <h1>Title</h1>
-    <p>{title}</p>
-
-    <h1>Subtitle</h1>
-    <p>{subtitle}</p>
-
+    <PageMeta title={title} subtitle={subtitle} />
     <h1>Images</h1>
     {images.map(img => {
       return (
@@ -31,10 +27,8 @@ export const HomePageTemplate = ({
         </section>
       )
     })}
-
     <h1>Content</h1>
     <Content source={body} />
-
     <h1>Solution Categories</h1>
     {solutionCategories.map(sc => {
       return (
@@ -48,7 +42,6 @@ export const HomePageTemplate = ({
         </section>
       )
     })}
-
     <h1>Testimonials</h1>
     <div>
       {testimonials &&

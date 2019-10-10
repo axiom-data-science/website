@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 
 import Layout from "../components/Layout"
 import Content from "../components/Content"
+import PageMeta from "../components/PageMeta"
 
 export const AboutPageTemplate = ({
   title,
@@ -15,17 +16,7 @@ export const AboutPageTemplate = ({
   staff,
 }) => (
   <main>
-    <h1>Title</h1>
-    <p>{title}</p>
-
-    <h1>Subtitle</h1>
-    <p>{subtitle}</p>
-
-    <h1>Feature</h1>
-    <div>
-      <Img fluid={featured.image.childImageSharp.fluid} />
-    </div>
-
+    <PageMeta title={title} subtitle={subtitle} featured={featured} />
     <h1>Locations</h1>
     {locations.map(loc => {
       let l = loc.frontmatter
@@ -50,7 +41,6 @@ export const AboutPageTemplate = ({
         </section>
       )
     })}
-
     <h1>Staff</h1>
     {staff.map(s => {
       let l = s.frontmatter
@@ -66,7 +56,6 @@ export const AboutPageTemplate = ({
         </section>
       )
     })}
-
     <h1>Content</h1>
     <Content source={body} />
   </main>
