@@ -131,24 +131,24 @@ export default () => {
               alt="Axiom Data Science"
             />
             <StyledNav>
-              <a key={home.title} href={home.slug}>
+              {home && <a key={home.title} href={home.slug}>
                 {home.title}
-              </a>
-              <a key={about.title} href={about.slug}>
+              </a>}
+              {about && <a key={about.title} href={about.slug}>
                 {about.title}
-              </a>
-              <a key={jobs.title} href={jobs.slug}>
+              </a>}
+              {jobs && <a key={jobs.title} href={jobs.slug}>
                 {jobs.title}
-              </a>
-              <a key={clients.title} href={clients.slug}>
+              </a>}
+              {clients && <a key={clients.title} href={clients.slug}>
                 {clients.title}
-              </a>
-              <a key={blog.title} href={blog.slug}>
+              </a>}
+              {blog &&<a key={blog.title} href={blog.slug}>
                 {blog.title}
-              </a>
-              <a key={contact.title} href={contact.slug}>
+              </a>}
+              {contact && <a key={contact.title} href={contact.slug}>
                 {contact.title}
-              </a>
+              </a>}
             </StyledNav>
           </StyledHeader>
         )
