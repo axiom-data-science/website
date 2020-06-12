@@ -1,14 +1,13 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
-import Layout from "../components/Layout"
-import Content from "../components/Content"
+import Layout from '../components/Layout';
+import Content from '../components/Content';
 
 export const SolutionPageTemplate = ({
   title,
   subtitle,
-  date,
   featured,
   images,
   testimonials,
@@ -30,27 +29,23 @@ export const SolutionPageTemplate = ({
 
     <h1>Images</h1>
     <div>
-      {images &&
-        images.map(i => {
-          return (
-            <div>
-              <Img fixed={i.image.childImageSharp.fixed} />
-              <span>{i.caption}</span>
-            </div>
-          )
-        })}
+      {images
+        && images.map((i) => (
+          <div>
+            <Img fixed={i.image.childImageSharp.fixed} />
+            <span>{i.caption}</span>
+          </div>
+        ))}
     </div>
 
     <h1>SolutionCategories</h1>
     <div>
-      {solutionCategories &&
-        solutionCategories.map(sc => {
-          return (
-            <div>
-              <a href={sc.fields.slug}>{sc.frontmatter.title}</a>
-            </div>
-          )
-        })}
+      {solutionCategories
+        && solutionCategories.map((sc) => (
+          <div>
+            <a href={sc.fields.slug}>{sc.frontmatter.title}</a>
+          </div>
+        ))}
     </div>
 
     <h1>Content</h1>
@@ -58,20 +53,18 @@ export const SolutionPageTemplate = ({
 
     <h1>Testimonials</h1>
     <div>
-      {testimonials &&
-        testimonials.map(t => {
-          return (
-            <div>
-              <span>{t.frontmatter.name}</span>
-              <span>{t.frontmatter.affiliation}</span>
-              <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
-              <span>{t.frontmatter.content}</span>
-            </div>
-          )
-        })}
+      {testimonials
+        && testimonials.map((t) => (
+          <div>
+            <span>{t.frontmatter.name}</span>
+            <span>{t.frontmatter.affiliation}</span>
+            <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
+            <span>{t.frontmatter.content}</span>
+          </div>
+        ))}
     </div>
   </main>
-)
+);
 
 const SolutionPage = ({ data: { page } }) => (
   <Layout
@@ -84,9 +77,9 @@ const SolutionPage = ({ data: { page } }) => (
       body={page.html}
     />
   </Layout>
-)
+);
 
-export default SolutionPage
+export default SolutionPage;
 
 export const pageQuery = graphql`
   query SolutionPage($id: String!) {
@@ -145,4 +138,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

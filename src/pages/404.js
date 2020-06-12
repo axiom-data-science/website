@@ -1,11 +1,11 @@
-import React from "react"
-import Helmet from "react-helmet"
-import { Link, StaticQuery, graphql } from "gatsby"
-import _get from "lodash/get"
+import React from 'react';
+import Helmet from 'react-helmet';
+import { Link, StaticQuery, graphql } from 'gatsby';
+import _get from 'lodash/get';
 
-import Layout from "../components/Layout"
+import Layout from '../components/Layout';
 
-export default ({ children }) => (
+export default () => (
   <StaticQuery
     query={graphql`
       query NotFoundPageQuery {
@@ -14,7 +14,7 @@ export default ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <Layout>
         <Helmet>
           <title>404 – Page Not Found</title>
@@ -25,12 +25,13 @@ export default ({ children }) => (
             <p>
               We can't find the page you are looking for!
               <br />
-              Head back to{" "}
-              <Link to="/">{_get(data, "globalSettings.siteTitle")}</Link>
+              Head back to
+              {' '}
+              <Link to="/">{_get(data, 'globalSettings.siteTitle')}</Link>
             </p>
           </div>
         </section>
       </Layout>
     )}
   />
-)
+);

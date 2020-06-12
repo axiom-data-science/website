@@ -13,6 +13,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
+    "date-fns": "^2.14.0",
     "gatsby": "^2.13.62",
     "gatsby-image": "^2.2.8",
     "gatsby-plugin-catch-links": "^2.1.3",
@@ -44,12 +45,20 @@
     "react-feather": "^2.0.3",
     "react-helmet": "^5.2.1",
     "react-markdown": "^4.1.0",
+    "react-slick": "^0.26.1",
     "slate": "^0.47.4",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^4.4.0",
     "webpack": "^4.39.2",
     "yarn": "^1.17.3"
   },
   "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
     "prettier": "1.18.2"
   },
   "repository": {
@@ -58,5 +67,27 @@
   },
   "bugs": {
     "url": "https://github.com/axiom-data-science/website/issues"
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb"
+    ],
+    "rules": {
+      "consistent-return": 0,
+      "max-len": 0,
+      "no-console": 0,
+      "react/prop-types": 0,
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
+      "react/no-unescaped-entities": 0,
+      "react/jsx-props-no-spreading": 0
+    }
   }
 }

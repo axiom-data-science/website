@@ -1,80 +1,75 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react';
+import styled from 'styled-components';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Layout from '../components/Layout';
+import Section from '../components/Section';
+import Content from '../components/Content';
+import Testimonial from '../components/Testimonial';
 
-import Layout from "../components/Layout"
-import Content from "../components/Content"
+const StyledTestimonialList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+`;
 
-export const PostPageTemplate = ({
-  title,
-  intro,
-  date,
-  featured,
-  images,
-  testimonials,
-  body,
-}) => (
-  <main>
-    <h1>Title</h1>
-    <p>{title}</p>
+const StyledImages = styled.div`
+  .slick-prev:before,
+  .slick-next:before {
+    color: black;
+  }
+`;
 
-    <h1>Date</h1>
-    <p>{date}</p>
-
-    <h1>Intro</h1>
-    <p>{intro}</p>
-
-    <h1>Featured</h1>
-    {featured &&
-      <div>
-        <Img fluid={featured.image.childImageSharp.fluid} />
-        <span>{featured.caption}</span>
-      </div>
-    }
-
-    <h1>Images</h1>
-    <div>
-      {images &&
-        images.map(i => {
-          return (
-            <div>
-              <Img fixed={i.image.childImageSharp.fixed} />
-              <span>{i.caption}</span>
-            </div>
-          )
-        })}
-    </div>
-
-    <h1>Content</h1>
-    <Content source={body} />
-
-    <h1>Testimonials</h1>
-    <div>
-      {testimonials &&
-        testimonials.map(t => {
-          return (
-            <div>
-              <span>{t.frontmatter.name}</span>
-              <span>{t.frontmatter.affiliation}</span>
-              <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
-              <span>{t.frontmatter.content}</span>
-            </div>
-          )
-        })}
-    </div>
-  </main>
-)
+const StyledImage = styled.div`
+  text-align: center;
+`;
 
 const PostPage = ({ data: { page } }) => (
   <Layout
-    meta={page.frontmatter.meta || false}
-    title={page.frontmatter.title || false}
+    meta={page.frontmatter.meta}
+    title={page.frontmatter.title}
+    subtitle={page.frontmatter.subtitle}
+    featured={page.frontmatter.featured}
   >
-    <PostPageTemplate {...page.frontmatter} {...page.fields} body={page.html} />
+    <Section>
+      <Content source={page.html} />
+    </Section>
+    {page.fields && page.fields.testimonials && (
+      <Section>
+        <h3>Testimonials</h3>
+        <StyledTestimonialList>
+          {page.fields.testimonials.map((testimonial) => (
+            <Testimonial testimonial={testimonial} />
+          ))}
+        </StyledTestimonialList>
+      </Section>
+    )}
+    <Section>
+      <StyledImages>
+        <Slider
+          settings={{
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+          }}
+        >
+          {page.frontmatter.images
+            && page.frontmatter.images.map((image) => (
+              <StyledImage>
+                <Img fluid={image.image.childImageSharp.fluid} />
+                <span>{image.caption}</span>
+              </StyledImage>
+            ))}
+        </Slider>
+      </StyledImages>
+    </Section>
   </Layout>
-)
+);
 
-export default PostPage
+export default PostPage;
 
 export const pageQuery = graphql`
   query PostPage($id: String!) {
@@ -89,8 +84,8 @@ export const pageQuery = graphql`
             affiliation
             headshot {
               childImageSharp {
-                fixed(width: 150) {
-                  ...GatsbyImageSharpFixed_noBase64
+                fixed(width: 100, height: 100) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
@@ -102,7 +97,6 @@ export const pageQuery = graphql`
         title
         date
         featured {
-          caption
           image {
             childImageSharp {
               fluid(maxWidth: 1500) {
@@ -115,8 +109,8 @@ export const pageQuery = graphql`
           caption
           image {
             childImageSharp {
-              fixed(width: 400) {
-                ...GatsbyImageSharpFixed_noBase64
+              fluid(maxWidth: 1500) {
+                ...GatsbyImageSharpFluid_noBase64
               }
             }
           }
@@ -124,4 +118,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

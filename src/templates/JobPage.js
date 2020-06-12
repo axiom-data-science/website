@@ -1,19 +1,17 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/Layout"
-import PageMeta from "../components/PageMeta"
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import PageMeta from '../components/PageMeta';
 
 export const JobPageTemplate = ({
   title,
   subtitle,
   featured,
-  body,
-  clients,
 }) => (
   <main>
     <PageMeta title={title} subtitle={subtitle} featured={featured} />
   </main>
-)
+);
 
 const JobPage = ({ data: { page, clients } }) => (
   <Layout
@@ -22,9 +20,9 @@ const JobPage = ({ data: { page, clients } }) => (
   >
     <JobPageTemplate {...page.frontmatter} clients={clients} body={page.html} />
   </Layout>
-)
+);
 
-export default JobPage
+export default JobPage;
 
 export const pageQuery = graphql`
   query JobPage($id: String!) {
@@ -48,4 +46,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
