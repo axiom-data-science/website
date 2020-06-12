@@ -1,134 +1,118 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
-import { extend } from "lodash"
+import React from 'react';
+import styled from 'styled-components';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import Layout from '../components/Layout';
+import Section from '../components/Section';
+import Testimonial from '../components/Testimonial';
 
-import Layout from "../components/Layout"
-import Content from "../components/Content"
-import PageMeta from "../components/PageMeta"
+const StyledList = styled.div`
+  display: grid;
+  grid-gap: 20px;
 
-export const HomePageTemplate = ({
-  title,
-  subtitle,
-  images,
-  body,
-  solutionCategories,
-  testimonials,
-}) => (
-  <main>
-    <PageMeta title={title} subtitle={subtitle} />
-    <h1>Images</h1>
-    {images.map(img => {
-      return (
-        <section>
-          <div>
-            <Img fluid={img.image.childImageSharp.fluid} />
-          </div>
-        </section>
-      )
-    })}
-    <h1>Content</h1>
-    <Content source={body} />
-    <h1>Solution Categories</h1>
-    {solutionCategories.map(sc => {
-      return (
-        <section>
-          <div>
-            <a href={sc.slug}>{sc.title}</a>
-            <span>{sc.subtitle}</span>
-            <Img fluid={sc.featured.image.childImageSharp.fluid} />
-            <div>{sc.featured.caption}</div>
-          </div>
-        </section>
-      )
-    })}
-    <h1>Testimonials</h1>
-    <div>
-      {testimonials &&
-        testimonials.map(t => {
-          return (
-            <div>
-              <span>{t.frontmatter.name}</span>
-              <span>{t.frontmatter.affiliation}</span>
-              <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
-              <span>{t.frontmatter.content}</span>
-            </div>
-          )
-        })}
-    </div>
-  </main>
-)
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
 
-const HomePage = ({ data: { page, solutionCategories } }) => (
+const StyledSolutionsList = styled(StyledList)`
+  grid-template-columns: repeat(4, 1fr);
+`;
+
+const StyledTestimonialList = styled(StyledList)`
+  grid-template-columns: repeat(2, 1fr);
+`;
+
+const StyledLocationList = styled(StyledList)`
+  grid-template-columns: repeat(4, 1fr);
+`;
+
+const HomePage = ({ data: { page, locations, solutions } }) => (
   <Layout
-    meta={page.frontmatter.meta || false}
-    title={page.frontmatter.title || false}
+    meta={page.frontmatter.meta}
+    title={page.frontmatter.title}
+    subtitle={page.frontmatter.subtitle}
   >
-    <HomePageTemplate
-      {...page.fields}
-      {...page.frontmatter}
-      solutionCategories={solutionCategories.nodes.map(s =>
-        extend(s.fields, s.frontmatter)
-      )}
-      body={page.html}
-    />
+    <Section>
+      <h3>Solutions</h3>
+      <StyledSolutionsList>
+        {solutions.nodes.map((solution) => (
+          <a key={`home-${solution.id}`} href="/">
+            <Img
+              fluid={solution.frontmatter.featured.image.childImageSharp.fluid}
+            />
+            <p>{solution.frontmatter.title}</p>
+          </a>
+        ))}
+      </StyledSolutionsList>
+    </Section>
+    <Section>
+      <h3>Testimonials</h3>
+      <StyledTestimonialList>
+        {page.fields.testimonials.map((testimonial) => (
+          <Testimonial key={`home-${testimonial.id}`} testimonial={testimonial} />
+        ))}
+      </StyledTestimonialList>
+    </Section>
+    <Section>
+      <h3>About</h3>
+      <p>
+        Axiom Data Science works with organizations to improve the long term
+        management, reuse and impact of their scientific data resources.
+      </p>
+      <StyledLocationList>
+        {locations.nodes.map((location) => (
+          <a key={`home-${location.id}`} href="/">
+            <Img fluid={location.frontmatter.photo.childImageSharp.fluid} />
+            <p>{location.frontmatter.title}</p>
+          </a>
+        ))}
+      </StyledLocationList>
+    </Section>
   </Layout>
-)
+);
 
-export default HomePage
+export default HomePage;
 
 export const pageQuery = graphql`
-  query HomePage($id: String!) {
+  query HomePageQuery($id: String!) {
     page: markdownRemark(id: { eq: $id }) {
       ...Meta
+      frontmatter {
+        title
+        subtitle
+      }
       html
       fields {
         testimonials {
+          id
           frontmatter {
             name
-            content
             affiliation
+            content
             headshot {
               childImageSharp {
-                fixed(width: 150) {
-                  ...GatsbyImageSharpFixed_noBase64
+                fixed(width: 100, height: 100) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
           }
         }
       }
-      frontmatter {
-        template
-        title
-        subtitle
-        images {
-          image {
-            childImageSharp {
-              fluid(maxWidth: 1500) {
-                ...GatsbyImageSharpFluid_noBase64
-              }
-            }
-          }
-        }
-      }
     }
-
-    solutionCategories: allMarkdownRemark(
+    solutions: allMarkdownRemark(
       filter: { fields: { contentType: { eq: "solutionCategories" } } }
     ) {
       nodes {
-        fields {
-          slug
-        }
+        id
         frontmatter {
           title
-          subtitle
           featured {
-            caption
             image {
               childImageSharp {
-                fluid(maxWidth: 1500) {
+                fluid(maxWidth: 500) {
                   ...GatsbyImageSharpFluid_noBase64
                 }
               }
@@ -137,5 +121,22 @@ export const pageQuery = graphql`
         }
       }
     }
+    locations: allMarkdownRemark(
+      filter: { fields: { contentType: { eq: "locations" } } }
+    ) {
+      nodes {
+        id
+        frontmatter {
+          title
+          photo {
+            childImageSharp {
+              fluid(maxWidth: 500) {
+                ...GatsbyImageSharpFluid_noBase64
+              }
+            }
+          }
+        }
+      }
+    }
   }
-`
+`;

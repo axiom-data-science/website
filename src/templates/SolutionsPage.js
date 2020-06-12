@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { graphql, Link } from 'gatsby';
-import { format } from 'date-fns';
 import Layout from '../components/Layout';
 import Section from '../components/Section';
+import Tags from '../components/Tags';
 
 const StyledPosts = styled.div`
   display: grid;
@@ -32,40 +32,33 @@ const StyledPost = styled.div`
     font-size: 0.833em;
     font-style: italic;
   }
-
-  .categories {
-    grid-column: 1 / span 2;
-    justify-self: start;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    .category {
-      background: var(--black);
-      color: var(--white);
-      padding: 0.5rem 0.25rem;
-      transform: skew(-15deg);
-      margin-right: .5rem;
-      span {
-        transform: skew(15deg);
-      }
-    }
-  }
 `;
 
-const PostCategoryPage = ({ data: { page, posts } }) => (
-  <Layout
-    meta={page.frontmatter.meta}
-    title={page.frontmatter.title}
-    subtitle={page.frontmatter.subtitle}
-    featured={page.frontmatter.featured}
-  >
-    <Section>
-      <h3>Posts</h3>
-      <StyledPosts>
-        {posts.nodes.map((post) => (
-          <StyledPost key={post.id}>
-            <div>
-              {post.frontmatter.featured
+const PostCategoryPage = ({
+  data: { page, solutions, solutionCategories },
+}) => {
+  const sc = solutionCategories.nodes.map((cat) => ({ id: cat.id, title: cat.frontmatter.title }));
+
+  return (
+    <Layout
+      meta={page.frontmatter.meta}
+      title={page.frontmatter.title}
+      subtitle={page.frontmatter.subtitle}
+      featured={page.frontmatter.featured}
+    >
+      <Section>
+        <h3>Solutions</h3>
+        <Tags tags={sc} />
+        <StyledPosts>
+          {solutions.nodes.map((post) => {
+            const cats = post.frontmatter.solution_categories.map((cat) => ({
+              id: 0,
+              title: cat.category,
+            }));
+            return (
+              <StyledPost key={post.id}>
+                <div>
+                  {post.frontmatter.featured
                     && post.frontmatter.featured.image && (
                       <Link to={`/posts/${post.frontmatter.relslug}`}>
                         <Img
@@ -75,39 +68,30 @@ const PostCategoryPage = ({ data: { page, posts } }) => (
                           }
                         />
                       </Link>
-              )}
-            </div>
-            <div>
-              <h3>
-                <Link to={`/posts/${post.frontmatter.relslug}`}>
-                  {post.frontmatter.title}
-                </Link>
-              </h3>
-              <time dateTime={post.frontmatter.date}>
-                {format(new Date(post.frontmatter.date), 'MMMM d, yyyy')}
-              </time>
-              <p>{post.excerpt}</p>
-            </div>
-            {post.frontmatter.blog_categories && (
-              <div className="categories">
-                {post.frontmatter.blog_categories.map((category) => (
-                  <div className="category">
-                    <span>{category.category}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </StyledPost>
-        ))}
-      </StyledPosts>
-    </Section>
-  </Layout>
-);
+                  )}
+                </div>
+                <div>
+                  <h3>
+                    <Link to={`/posts/${post.frontmatter.relslug}`}>
+                      {post.frontmatter.title}
+                    </Link>
+                  </h3>
+                  <p>{post.excerpt}</p>
+                </div>
+                <Tags tags={cats} />
+              </StyledPost>
+            );
+          })}
+        </StyledPosts>
+      </Section>
+    </Layout>
+  );
+};
 
 export default PostCategoryPage;
 
 export const pageQuery = graphql`
-  query PostsCategoryPageQuery($id: String!) {
+  query SolutionsPageQuery($id: String!) {
     page: markdownRemark(id: { eq: $id }) {
       ...Meta
       frontmatter {
@@ -124,8 +108,8 @@ export const pageQuery = graphql`
         }
       }
     }
-    posts: allMarkdownRemark(
-      filter: { fields: { contentType: { eq: "posts" } } }
+    solutions: allMarkdownRemark(
+      filter: { fields: { contentType: { eq: "solutions" } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       nodes {
@@ -133,7 +117,6 @@ export const pageQuery = graphql`
         excerpt
         frontmatter {
           title
-          date
           relslug
           featured {
             image {
@@ -144,9 +127,21 @@ export const pageQuery = graphql`
               }
             }
           }
-          blog_categories {
+          solution_categories {
             category
           }
+        }
+      }
+    }
+    solutionCategories: allMarkdownRemark(
+      filter: { fields: { contentType: { eq: "solutionCategories" } } }
+      sort: { fields: [frontmatter___title], order: ASC }
+    ) {
+      nodes {
+        id
+        frontmatter {
+          title
+          slug
         }
       }
     }

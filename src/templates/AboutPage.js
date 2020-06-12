@@ -1,162 +1,82 @@
-import React from "react"
-import { MapPin } from "react-feather"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
-import styled from "styled-components"
+import React from 'react';
+import styled from 'styled-components';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import Layout from '../components/Layout';
+import Section from '../components/Section';
 
-import Layout from "../components/Layout"
-import Content from "../components/Content"
-import PageMeta from "../components/PageMeta"
-
-const StyledSectionTitle = styled.h4`
-  grid-column: 1 / -1;
-  text-transform: uppercase;
-  color: black;
-`
-
-const StyledLocationList = styled.div`
+const StyledList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 20px;
-  max-width: ${props => props.theme.maxWidth};
+
   a {
+    color: inherit;
     text-decoration: none;
-    color: black;
   }
-`
+`;
 
-const StyledGeo = styled.div`
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  grid-gap: 10px;
-  align-items: center;
-  padding: 1rem 0;
-  p {
-    margin: 0 0 0 5px;
-  }
-`
+const StyledLocationList = styled(StyledList)`
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+`;
 
-const StyledAddress = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-const StyledStaffList = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 20px;
-  max-width: ${props => props.theme.maxWidth};
-  a {
-    text-decoration: none;
-    color: black;
-  }
-`
-
-const StyledStaff = styled.div`
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-gap: 20px;
-  max-width: ${props => props.theme.maxWidth};
-  padding: 1rem;
-  border-radius: 4px;
-  border: 1px solid black;
-`
-
-const StyledStaffInformation = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  h3 {
-    margin-top: 0;
-  }
-`
-
-export const AboutPageTemplate = ({
-  title,
-  subtitle,
-  featured,
-  body,
-  locations,
-  staff,
-}) => (
-  <main>
-    <PageMeta title={title} subtitle={subtitle} featured={featured} />
-    <StyledSectionTitle>Locations</StyledSectionTitle>
-    <StyledLocationList>
-      {locations.map(loc => {
-        let l = loc.frontmatter
-        return (
-          <section>
-            <div>
-              <div>
-                <div>
-                  {l.address1 && l.address2 && (
-                    <a
-                      href={l.mapslink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Img fluid={l.photo.childImageSharp.fluid} />
-                      <StyledGeo>
-                        <MapPin />
-                        <StyledAddress>
-                          <p>{l.address1}</p>
-                          <p>{l.address2}</p>
-                        </StyledAddress>
-                      </StyledGeo>
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
-          </section>
-        )
-      })}
-    </StyledLocationList>
-    <StyledSectionTitle>Staff</StyledSectionTitle>
-    <StyledStaffList>
-      {staff.map(s => {
-        let l = s.frontmatter
-        return (
-          <StyledStaff>
-            <Img fluid={l.headshot.childImageSharp.fluid} />
-            <StyledStaffInformation>
-              <a href={`mailto:${l.email}`}>
-                <h3>{l.name}</h3>
-              </a>
-              <p>{l.position}</p>
-              {l.email}
-              <Content source={s.html} />
-            </StyledStaffInformation>
-          </StyledStaff>
-        )
-      })}
-    </StyledStaffList>
-    <h1>Content</h1>
-    <Content source={body} />
-  </main>
-)
+const StyledStaffList = styled(StyledList)`
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+`;
 
 const AboutPage = ({ data: { page, locations, staff } }) => (
   <Layout
-    meta={page.frontmatter.meta || false}
-    title={page.frontmatter.title || false}
+    meta={page.frontmatter.meta}
+    title={page.frontmatter.title}
+    subtitle={page.frontmatter.subtitle}
+    featured={page.frontmatter.featured}
   >
-    <AboutPageTemplate
-      {...page.frontmatter}
-      locations={locations.nodes}
-      staff={staff.nodes}
-      body={page.html}
-    />
+    <Section>
+      <h3>Locations</h3>
+      <StyledLocationList>
+        {locations.nodes.map((location) => (
+          <a
+            href={location.frontmatter.mapslink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Img fluid={location.frontmatter.photo.childImageSharp.fluid} />
+            <p>{location.frontmatter.title}</p>
+            <p>
+              <em>{location.frontmatter.address1}</em>
+            </p>
+            <p>
+              <em>{location.frontmatter.address2}</em>
+            </p>
+          </a>
+        ))}
+      </StyledLocationList>
+    </Section>
+    <Section>
+      <h3>Staff</h3>
+      <StyledStaffList>
+        {staff.nodes.map((s) => (
+          <div className="item">
+            <a href={`mailto:${s.frontmatter.email}`}>
+              <Img fluid={s.frontmatter.headshot.childImageSharp.fluid} />
+              <div className="description">
+                <h4>{s.frontmatter.name}</h4>
+                <p>{s.frontmatter.position}</p>
+              </div>
+            </a>
+          </div>
+        ))}
+      </StyledStaffList>
+    </Section>
   </Layout>
-)
+);
 
-export default AboutPage
+export default AboutPage;
 
 export const pageQuery = graphql`
   query AboutPage($id: String!) {
     page: markdownRemark(id: { eq: $id }) {
       ...Meta
-      html
       frontmatter {
         template
         title
@@ -215,4 +135,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

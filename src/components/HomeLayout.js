@@ -1,21 +1,17 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import 'normalize.css';
 import GlobalStyles from './GlobalStyles';
 import Meta from './Meta';
 import Header from './Header';
+import Content2 from './Content2';
 import Footer from './Footer';
-import Hexagons from './Hexagons';
-import Section from './Section';
 
-export default ({
-  children, meta, title, subtitle, featured,
-}) => (
+export default ({ children, meta, title }) => (
   <StaticQuery
     query={graphql`
-        query IndexLayoutQuery {
+        query HomeLayoutQuery {
           settingsYaml {
             siteTitle
             siteDescription
@@ -23,10 +19,10 @@ export default ({
             socialMediaCard {
               image
             }
-          }
+          },
           file(relativePath: { eq: "axiom-logo.png" }) {
             childImageSharp {
-              fixed(width: 150) {
+              fixed {
                 ...GatsbyImageSharpFixed
               }
             }
@@ -56,17 +52,6 @@ export default ({
           />
           <GlobalStyles />
           <Header logo={data.file.childImageSharp.fixed} />
-          <Hexagons />
-          <Section>
-            {title && <h1>{title}</h1>}
-            {subtitle && <p>{subtitle}</p>}
-            {featured && featured.image && (
-              <>
-                <Img fluid={featured.image.childImageSharp.fluid} />
-                {featured.caption && <span>{featured.caption}</span>}
-              </>
-            )}
-          </Section>
           {children}
           <Footer />
         </>

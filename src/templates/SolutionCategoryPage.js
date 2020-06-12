@@ -1,14 +1,13 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
-import Layout from "../components/Layout"
-import Content from "../components/Content"
+import Layout from '../components/Layout';
+import Content from '../components/Content';
 
 export const SolutionCategoryPageTemplate = ({
   title,
   subtitle,
-  date,
   featured,
   testimonials,
   solutions,
@@ -22,27 +21,26 @@ export const SolutionCategoryPageTemplate = ({
     <p>{subtitle}</p>
 
     <h1>Featured</h1>
-    {featured &&
+    {featured
+      && (
       <div>
         <Img fluid={featured.image.childImageSharp.fluid} />
         <span>{featured.caption}</span>
       </div>
-    }
+      )}
 
     <h1>Solutions</h1>
     <div>
-      {solutions &&
-        solutions.map(sc => {
-          return (
-            <div>
-              <a href={sc.fields.slug}>{sc.frontmatter.title}</a>
-              <span>{sc.frontmatter.subtitle}</span>
-              <Img
-                fixed={sc.frontmatter.featured.image.childImageSharp.fixed}
-              />
-            </div>
-          )
-        })}
+      {solutions
+        && solutions.map((sc) => (
+          <div>
+            <a href={sc.fields.slug}>{sc.frontmatter.title}</a>
+            <span>{sc.frontmatter.subtitle}</span>
+            <Img
+              fixed={sc.frontmatter.featured.image.childImageSharp.fixed}
+            />
+          </div>
+        ))}
     </div>
 
     <h1>Content</h1>
@@ -50,20 +48,18 @@ export const SolutionCategoryPageTemplate = ({
 
     <h1>Testimonials</h1>
     <div>
-      {testimonials &&
-        testimonials.map(t => {
-          return (
-            <div>
-              <span>{t.frontmatter.name}</span>
-              <span>{t.frontmatter.affiliation}</span>
-              <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
-              <span>{t.frontmatter.content}</span>
-            </div>
-          )
-        })}
+      {testimonials
+        && testimonials.map((t) => (
+          <div>
+            <span>{t.frontmatter.name}</span>
+            <span>{t.frontmatter.affiliation}</span>
+            <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
+            <span>{t.frontmatter.content}</span>
+          </div>
+        ))}
     </div>
   </main>
-)
+);
 
 const SolutionCategoryPage = ({ data: { page } }) => (
   <Layout
@@ -76,9 +72,9 @@ const SolutionCategoryPage = ({ data: { page } }) => (
       body={page.html}
     />
   </Layout>
-)
+);
 
-export default SolutionCategoryPage
+export default SolutionCategoryPage;
 
 export const pageQuery = graphql`
   query SolutionCategoryPage($id: String!) {
@@ -137,4 +133,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

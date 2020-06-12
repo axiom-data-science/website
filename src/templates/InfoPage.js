@@ -1,9 +1,9 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
-import Layout from "../components/Layout"
-import Content from "../components/Content"
+import Layout from '../components/Layout';
+import Content from '../components/Content';
 
 export const InfoPageTemplate = ({
   title,
@@ -28,15 +28,13 @@ export const InfoPageTemplate = ({
 
     <h1>Images</h1>
     <div>
-      {images &&
-        images.map(i => {
-          return (
-            <div>
-              <Img fixed={i.image.childImageSharp.fixed} />
-              <span>{i.caption}</span>
-            </div>
-          )
-        })}
+      {images
+        && images.map((i) => (
+          <div>
+            <Img fixed={i.image.childImageSharp.fixed} />
+            <span>{i.caption}</span>
+          </div>
+        ))}
     </div>
 
     <h1>Content</h1>
@@ -44,20 +42,18 @@ export const InfoPageTemplate = ({
 
     <h1>Testimonials</h1>
     <div>
-      {testimonials &&
-        testimonials.map(t => {
-          return (
-            <div>
-              <span>{t.frontmatter.name}</span>
-              <span>{t.frontmatter.affiliation}</span>
-              <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
-              <span>{t.frontmatter.content}</span>
-            </div>
-          )
-        })}
+      {testimonials
+        && testimonials.map((t) => (
+          <div>
+            <span>{t.frontmatter.name}</span>
+            <span>{t.frontmatter.affiliation}</span>
+            <Img fixed={t.frontmatter.headshot.childImageSharp.fixed} />
+            <span>{t.frontmatter.content}</span>
+          </div>
+        ))}
     </div>
   </main>
-)
+);
 
 const InfoPage = ({ data: { page } }) => (
   <Layout
@@ -70,9 +66,9 @@ const InfoPage = ({ data: { page } }) => (
       body={page.html}
     />
   </Layout>
-)
+);
 
-export default InfoPage
+export default InfoPage;
 
 export const pageQuery = graphql`
   query InfoPage($id: String!) {
@@ -122,4 +118,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
